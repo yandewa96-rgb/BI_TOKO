@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% block title %}Apriori{% endblock %}
+{% block content %}
+<div class="page-h"><div><h1>Analisis Pola Pembelian — Apriori</h1>
+<p>Market Basket Analysis pada {{ n|num }} nota dan {{ products|length }} produk. Ubah parameter di bawah untuk melihat hasilnya secara langsung.</p></div>
+<div class="pill-row"><span class="tag">Tahap 3</span><span class="tag blue">Soal 5 &amp; 6</span></div></div>
+<div class="toc"><a href="#a-param">Parameter</a><a href="#a-hasil">Itemset &amp; aturan</a><a href="#a-vis">Visualisasi</a><a href="#a-int">Interpretasi</a><a href="#a-rek">Rekomendasi</a></div>
+
+<div class="sec" id="a-param"><h2>5b · Menentukan min. support &amp; min. confidence</h2><div class="line"></div></div>
+<div class="grid g-12">
+<div class="card"><h3>Parameter (interaktif)</h3>
+  <div class="f" style="margin:10px 0"><label>Min. support</label><div class="range-row"><input type="range" id="p-sup" min="0.005" max="0.04" step="0.0025" value="{{ defaults.support }}"><b class="num" id="p-sup-v"></b></div></div>
+  <div class="f" style="margin:10px 0"><label>Min. confidence</label><div class="range-row"><input type="range" id="p-conf" min="0.1" max="0.6" step="0.05" value="{{ defaults.conf }}"><b class="num" id="p-conf-v"></b></div></div>
+  <div class="f" style="margin:10px 0"><label>Panjang itemset maks.</label><div class="seg-toggle" id="p-len"><button data-v="2">2 item</button><button data-v="3" class="on">3 item</button></div></div>
+  <div class="callout info"><div id="p-sum" class="small"></div></div>
+  <button class="btn" id="p-reset" style="margin-top:10px">Kembalikan ke nilai pilihan</button></div>
+<div class="card"><h3>Alasan pemilihan nilai (support = {{ defaults.support|pct(0) }}, confidence = {{ defaults.conf|pct(0) }})</h3>
+<ul class="clean">
+<li><b>Karakter dataset</b>: {{ products|length }} produk dengan basket kecil (rata-rata {{ S.trans.basket_size.mean()|num(2) }} produk/nota). Tiap produk muncul di ±{{ (S.matrix.mean().mean())|pct(0) }} nota, sehingga dua produk yang dibeli <i>acak</i> akan bersama di ±{{ (S.matrix.mean().mean()**2)|pct(0) }} nota. Support 20–30% mustahil tercapai; ambang 1% (≥ {{ (defaults.support*n)|int }} nota) berada tepat di atas tingkat kebetulan namun masih cukup banyak untuk dibuktikan.</li>
+<li><b>Confidence 20%</b> ≈ dua kali peluang dasar membeli satu produk (±10%), sehingga hanya pola yang benar-benar lebih kuat dari acak yang lolos.</li>
+<li><b>Tujuan bisnis</b>: menemukan pasangan yang dapat dibundel atau didekatkan di rak — cukup melibatkan puluhan nota, bukan ratusan. Aturan diurutkan menurut <b>lift</b> (kekuatan hubungan di atas kebetulan), lalu confidence.</li>
+<li><b>Uji sensitivitas</b> terhadap ambang support ada pada tabel di bawah: aturan kuat stabil pada berbagai ambang, sedangkan menurunkan ambang hanya menambah itemset acak.</li></ul></div>
+</div>
+
+<div class="card mt"><h3>Sensitivitas terhadap min. support (confidence 20%, itemset ≤ 3)</h3>
+<div class="tbl-wrap"><table class="t compact"><thead><tr><th class="r">Min. support</th><th class="r">Min. nota</th><th class="r">Frequent itemset</th><th class="r">Aturan (conf ≥ 20%)</th><th class="r">Aturan lift &gt; 1,2</th><th class="r">Itemset 3 produk</th></tr></thead><tbody>
+{% for s in sens %}<tr {% if s.support == defaults.support %}style="background:#eef6f7;font-weight:600"{% endif %}><td class="r">{{ s.support|pct(2) }}</td><td class="r">{{ s.min_count }}</td><td class="r">{{ s.itemsets }}</td><td class="r">{{ s.rules }}</td><td class="r">{{ s.rules_lift }}</td><td class="r">{{ s.triples }}</td></tr>{% endfor %}
+</tbody></table></div></div>
+
+<div class="sec" id="a-hasil"><h2>5a, 5c–f · Matriks, frequent itemsets &amp; aturan asosiasi</h2><div class="line"></div></div>
+<div class="grid g-12">
+<div class="card"><h3>Frequent itemsets</h3><p class="sub" id="p-its-sub"></p><div id="p-its"></div></div>
+<div class="card"><h3>10 aturan asosiasi terbaik</h3><p class="sub">Kriteria peringkat: <b>lift</b> tertinggi (hanya lift &gt; 1), lalu confidence. Support menjamin pola cukup sering; confidence menunjukkan kepastian; lift menyingkirkan efek produk yang memang populer.</p><div id="p-rules"></div></div>
+</div>
+<div class="card mt"><h3>Seluruh aturan yang lolos <span class="muted small" style="font-weight:400" id="p-all-n"></span></h3><div id="p-all"></div></div>
+
+<div class="sec" id="a-vis"><h2>5g · Visualisasi hasil Apriori</h2><div class="line"></div></div>
+<div class="grid g2">
+<div class="card"><h3>Network graph</h3><p class="sub">Simpul = produk, garis = pasangan yang lolos ambang. Arahkan kursor ke garis untuk detail.</p><div class="net" id="p-net"></div>
+<div class="legend"><span><i style="background:#d9453d"></i>Lift tertinggi</span><span><i style="background:#e8a317"></i>Menengah</span><span><i style="background:#3b6fd4"></i>Terendah (&gt;1)</span></div></div>
+<div class="card"><h3>Heatmap lift antar-produk</h3><p class="sub">Seluruh pasangan dari {{ products|length }} produk. Merah = dibeli bersama lebih sering dari kebetulan (lift &gt; 1); biru muda = lebih jarang. Nilai ditampilkan jika lift ≥ 1,5.</p><div style="overflow:auto"><div id="p-heat"></div></div></div>
+</div>
+
+<div class="sec" id="a-int"><h2>6a–b · Interpretasi pola pembelian</h2><div class="line"></div></div>
+<div class="grid g3" id="p-pairs"></div>
+<div class="card mt"><h3>Arti ukuran support, confidence, dan lift</h3>
+<div class="grid g3"><div><span class="tag">Support</span><p class="small" style="margin:6px 0 0">Persentase nota yang memuat <i>kedua</i> produk. Menunjukkan seberapa umum pola itu — pola dengan support kecil kurang berdampak pada omzet total.</p></div>
+<div><span class="tag blue">Confidence</span><p class="small" style="margin:6px 0 0">Dari semua nota yang memuat produk A, berapa persen juga memuat produk B. Dasar untuk menawarkan B kepada pembeli A. Tidak simetris (A→B ≠ B→A).</p></div>
+<div><span class="tag red">Lift</span><p class="small" style="margin:6px 0 0">Confidence ÷ peluang dasar B. Lift = 1 independen; &gt; 1 saling menguatkan. Lift 3 berarti peluang beli bersama 3× lipat dari kebetulan.</p></div></div>
+<div class="callout warn mt"><div><b>Catatan penting</b>Aturan asosiasi menunjukkan <u>korelasi pembelian</u>, bukan sebab-akibat. Dampak penempatan/bundling baru terbukti setelah diuji (lihat rencana evaluasi di menu Rekomendasi).</div></div></div>
+
+<div class="sec" id="a-rek"><h2>6c–e · Rekomendasi cross-selling, bundling &amp; penempatan rak</h2><div class="line"></div></div>
+<div class="grid g2">
+{% for c in rec.cross %}
+<div class="card"><div style="display:flex;justify-content:space-between;gap:8px;align-items:flex-start"><h3>{{ loop.index }}. Bundling "{{ c.a }} + {{ c.b }}"</h3><span class="tag red">lift {{ c.lift|num(2) }}</span></div>
+<p class="small" style="margin:4px 0 8px"><b>Bukti data:</b> dibeli bersama di {{ c.both }} nota (support {{ c.support|pct(2) }}); {{ c.confidence|pct(0) }} pembeli {{ c.a }} juga membeli {{ c.b }}{% if c.conf_rev %} (arah sebaliknya {{ c.conf_rev|pct(0) }}){% endif %}; ada {{ c.a_wo_b }} nota yang membeli {{ c.a }} <i>tanpa</i> {{ c.b }} — itulah peluang cross-sell.</p>
+<ul class="clean small"><li><b>Cross-selling</b>: kasir/aplikasi menawarkan {{ c.b }} ke pembeli {{ c.a }}.</li><li><b>Bundling</b>: paket "{{ c.a }} + {{ c.b }}" dengan potongan kecil (±5%).</li><li><b>Rak</b>: tempatkan {{ c.cat_a }} ({{ c.a }}) berdekatan dengan {{ c.cat_b }} ({{ c.b }}){% if c.cat_a != c.cat_b %} — lintas kategori, sehingga biasanya terpisah di toko dan perlu dipindah{% endif %}.</li></ul>
+<p class="small muted" style="margin:8px 0 0"><b>Alasan:</b> lift {{ c.lift|num(2) }} jauh di atas 1 pada ambang support {{ defaults.support|pct(0) }} sehingga hubungan ini bukan karena kedua produk sama-sama populer.</p></div>
+{% endfor %}
+</div>
+{% if rec.triple_items %}
+<div class="card mt"><h3>Paket 3 produk: {{ rec.triple_items|join(' + ') }}</h3><p class="small" style="margin:4px 0 0">Pada support lebih rendah ({{ 0.005|pct(1) }}) muncul itemset 3 produk yang dibeli bersama di {{ rec.triple_count }} nota (support {{ rec.triple_support|pct(2) }}) dengan lift aturan {{ rec.triple[0].lift|num(2) }}. Sebagai <b>paket "belanja bulanan sembako"</b> (nilai normal ±{{ rec.triple_value|rp }}). Jumlah notanya kecil, jadi diperlakukan sebagai hipotesis yang perlu diuji, bukan kesimpulan.</p></div>
+{% endif %}
+{% endblock %}
+{% block scripts %}
+<script>
+const DEF = { support: {{ defaults.support }}, conf: {{ defaults.conf }} };
+let maxlen = '3', timer;
+function q() { return `/api/apriori?support=${$('#p-sup').value}&conf=${$('#p-conf').value}&maxlen=${maxlen}`; }
+function run() {
+  $('#p-sup-v').textContent = fmt.pct(+$('#p-sup').value, 2); $('#p-conf-v').textContent = fmt.pct(+$('#p-conf').value, 0);
+  fetch(q()).then(r => r.json()).then(d => {
+    $('#p-sum').innerHTML = `Min. support ${fmt.pct(d.support, 2)} = minimal <b>${d.min_count}</b> nota bersama dari ${fmt.num(d.n_trans)} nota.<br><b>${d.n_itemsets}</b> frequent itemset (${Object.entries(d.itemsets_by_size).map(([k, v]) => k + '-item: ' + v).join(', ')}) → <b>${d.n_rules}</b> aturan (confidence ≥ ${fmt.pct(d.conf, 0)}), <b>${d.n_rules_lift}</b> di antaranya berlift &gt; 1.`;
+    $('#p-its-sub').textContent = `${d.n_itemsets} itemset; 40 dengan support tertinggi ditampilkan.`;
+    const mx = Math.max(...d.itemsets.map(i => i.support));
+    $('#p-its').innerHTML = `<div class="tbl-wrap scroll-y"><table class="t compact"><thead><tr><th>Itemset</th><th class="r">Nota</th><th class="r">Support</th></tr></thead><tbody>${d.itemsets.map(i => `<tr><td>${esc(i.itemset)}${i.size > 1 ? ` <span class="tag blue">${i.size}</span>` : ''}</td><td class="r">${i.count}</td><td class="r"><div class="bar-cell"><i style="width:${Math.round(60 * i.support / mx)}px"></i>${fmt.pct(i.support, 2)}</div></td></tr>`).join('')}</tbody></table></div>`;
+    rulesTable('#p-rules', d.top_rules);
+    const all = d.all_rules.map((r, i) => ({ ...r, rank: i + 1 }));
+    $('#p-all-n').textContent = `(${d.n_rules_lift} aturan berlift > 1; ${Math.min(all.length, 150)} teratas)`;
+    rulesTable('#p-all', all, { scroll: true });
+    networkGraph('p-net', d.edges);
+    liftHeatmap('p-heat', d.heat);
+    $('#p-pairs').innerHTML = d.pairs.slice(0, 3).map((r, i) => `<div class="card"><span class="tag">Pasangan ${i + 1}</span><h3 style="margin-top:8px">${esc(r.ant_items.join(' + '))} ↔ ${esc(r.con_items.join(' + '))}</h3>
+      <p class="small" style="margin:6px 0 0"><b>Support ${fmt.pct(r.support, 2)}</b> — muncul bersama di ${r.count} dari ${fmt.num(d.n_trans)} nota.<br><b>Confidence ${fmt.pct(r.confidence, 1)}</b> — ${fmt.pct(r.confidence, 0)} nota yang memuat ${esc(r.antecedent)} juga memuat ${esc(r.consequent)}.<br><b>Lift ${r.lift.toFixed(2)}</b> — peluang beli bersama ${r.lift.toFixed(1)}× lipat dibanding jika dibeli saling lepas.</p></div>`).join('') || '<div class="empty card">Tidak ada pasangan pada ambang ini.</div>';
+  });
+}
+function trig() { clearTimeout(timer); timer = setTimeout(run, 200); }
+['p-sup', 'p-conf'].forEach(i => $('#' + i).addEventListener('input', trig));
+$$('#p-len button').forEach(b => b.addEventListener('click', () => { $$('#p-len button').forEach(x => x.classList.remove('on')); b.classList.add('on'); maxlen = b.dataset.v; trig(); }));
+$('#p-reset').addEventListener('click', () => { $('#p-sup').value = DEF.support; $('#p-conf').value = DEF.conf; trig(); });
+run();
+</script>
+{% endblock %}

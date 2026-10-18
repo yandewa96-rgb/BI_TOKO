@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block title %}Business Understanding{% endblock %}
+{% block content %}
+{% set a = S.audit %}
+{% set loy = prof.get('Loyal Customers') %}{% set chu = prof.get('Churn Risk') %}
+<div class="page-h"><div><h1>Business Understanding</h1>
+<p>Memahami masalah perusahaan ritel, merumuskan pertanyaan analitis, dan menjelaskan bagaimana hasil analisis menjawabnya.</p></div>
+<div class="pill-row"><span class="tag">Tahap 1</span><span class="tag blue">Soal 1</span></div></div>
+
+<div class="card">
+  <h2>1a · Permasalahan utama perusahaan</h2>
+  <p class="sub">Disarikan dari narasi studi kasus dan dikuatkan dengan temuan pada data.</p>
+  <div class="grid g2">
+    <div class="callout bad"><div><b>Data hanya untuk laporan rutin</b>Data transaksi ({{ S.summary.after['Transaksi unik']|num }} nota, {{ S.summary.after['Pelanggan unik']|num }} pelanggan) belum dipakai untuk memahami perilaku belanja dan menyusun strategi.</div></div>
+    <div class="callout bad"><div><b>Pola pembelian produk tidak diketahui</b>Manajemen belum tahu produk apa yang sering dibeli bersama, sehingga penataan rak, bundling, dan cross-selling belum berbasis bukti.</div></div>
+    <div class="callout bad"><div><b>Pelanggan diperlakukan seragam</b>Belum ada segmentasi: pelanggan loyal, pelanggan berpotensi, dan pelanggan yang mulai hilang mendapat perlakuan pemasaran yang sama.</div></div>
+    <div class="callout warn"><div><b>Kualitas data belum terjamin</b>Terdeteksi {{ a.duplicates_exact }} baris duplikat, {{ a.missing.values()|sum }} sel kosong, {{ a.qty_extreme + a.qty_nonpositive }} Quantity tidak valid, {{ a.price_bad_total }} Unit_Price tidak wajar, dan teks tidak konsisten sehingga laporan bisa menyesatkan.</div></div>
+  </div>
+</div>
+
+<div class="card mt">
+  <h2>1b · Pertanyaan bisnis &amp; jawaban dari data</h2>
+  <p class="sub">Lima pertanyaan analitis (minimal 3). Jawaban dihitung langsung dari hasil analisis di aplikasi ini.</p>
+  <div class="q-card"><div class="no">1</div><div><b>Produk apa yang sering dibeli bersamaan?</b>
+    <div class="muted small" style="margin:2px 0 6px">Dijawab dengan Apriori · <a href="/apriori">lihat analisis →</a></div>
+    {% if top %}Pasangan paling kuat adalah <b>{{ top[0].ant_items[0] }} ↔ {{ top[0].con_items[0] }}</b> (lift {{ '%.2f'|format(top[0].lift)|replace('.',',') }}, dibeli bersama di {{ top[0].count }} nota){% for t in top[1:3] %}, lalu <b>{{ t.ant_items[0] }} ↔ {{ t.con_items[0] }}</b> (lift {{ '%.2f'|format(t.lift)|replace('.',',') }}){% endfor %}.{% endif %}</div></div>
+  <div class="q-card"><div class="no">2</div><div><b>Segmen pelanggan mana yang paling bernilai?</b>
+    <div class="muted small" style="margin:2px 0 6px">Dijawab dengan K-Means (RFM) · <a href="/kmeans">lihat analisis →</a></div>
+    {% if loy %}<b>Loyal Customers</b> hanya {{ loy.share|pct(0) }} dari pelanggan ({{ loy.n|num }} orang) tetapi menyumbang {{ loy.rev_share|pct(0) }} omzet, dengan rata-rata {{ loy.F_mean|num(1) }} transaksi dan belanja {{ loy.M_mean|rps }} per tahun.{% endif %}</div></div>
+  <div class="q-card"><div class="no">3</div><div><b>Pelanggan mana yang berisiko tidak kembali (churn)?</b>
+    <div class="muted small" style="margin:2px 0 6px">Dijawab dengan K-Means (Recency) · <a href="/kmeans">lihat analisis →</a></div>
+    {% if chu %}Segmen <b>Churn Risk</b> ({{ chu.n|num }} pelanggan, {{ chu.share|pct(0) }}) rata-rata sudah <b>{{ chu.R_mean|num }} hari</b> tidak berbelanja, dibanding {{ loy.R_mean|num }} hari pada pelanggan loyal.{% endif %}</div></div>
+  <div class="q-card"><div class="no">4</div><div><b>Kapan penjualan meningkat dan kategori apa yang paling dominan?</b>
+    <div class="muted small" style="margin:2px 0 6px">Dijawab dengan EDA &amp; dashboard · <a href="/">lihat dashboard →</a></div>
+    Omzet bulanan tertinggi pada <b>{{ months[monthly.idxmax()[-2:]|int - 1] }}</b> ({{ monthly.max()|rps }}) dan terendah <b>{{ months[monthly.idxmin()[-2:]|int - 1] }}</b> ({{ monthly.min()|rps }}). Kategori terbesar: <b>{{ eda.categories.labels[0] }}</b> ({{ (eda.categories['values'][0]/eda.categories['values']|sum)|pct(0) }} omzet kotor mentah).</div></div>
+  <div class="q-card"><div class="no">5</div><div><b>Tindakan pemasaran apa yang paling layak diprioritaskan?</b>
+    <div class="muted small" style="margin:2px 0 6px">Dijawab dengan rekomendasi preskriptif · <a href="/rekomendasi">lihat rekomendasi →</a></div>
+    Berdasarkan skor urgensi, manfaat, biaya, dan kemudahan, prioritas teratas adalah <b>{{ rec.prioritas[0].nama }}</b>, diikuti <b>{{ rec.prioritas[1].nama }}</b>.</div></div>
+</div>
+
+<div class="grid g2 mt">
+  <div class="card"><h2>1c · Membantu meningkatkan penjualan</h2>
+    <ul class="clean">
+      <li><b>Cross-selling &amp; bundling</b>: aturan asosiasi menunjukkan produk yang berpeluang dibeli bersama; menaikkan rata-rata basket size (saat ini {{ rec.base.avg_basket|num(2) }} produk/nota) menaikkan nilai tiap nota ({{ rec.base.aov|rps }}).</li>
+      <li><b>Penataan rak</b>: produk berlift tinggi didekatkan agar pembelian pelengkap lebih mudah dan impulsif.</li>
+      <li><b>Perencanaan stok &amp; promosi musiman</b> dari tren bulanan agar tidak kehabisan stok saat puncak.</li>
+      <li><b>Efisiensi anggaran promosi</b>: diskon diarahkan ke segmen yang tepat, bukan ke semua pelanggan.</li>
+    </ul></div>
+  <div class="card"><h2>1c · Membantu mempertahankan pelanggan</h2>
+    <ul class="clean">
+      <li><b>Deteksi dini churn</b> dengan Recency: pelanggan yang lama tidak kembali ditangani sebelum benar-benar hilang.</li>
+      <li><b>Memberi penghargaan</b> kepada pelanggan loyal yang menyumbang sebagian besar omzet agar tidak berpindah toko.</li>
+      <li><b>Mengembangkan pelanggan potensial</b> menjadi loyal lewat program frekuensi dan rekomendasi produk.</li>
+      <li><b>Komunikasi personal</b> sesuai profil segmen, sehingga biaya pemasaran lebih efektif.</li>
+    </ul></div>
+</div>
+
+<div class="card mt"><h2>Alur analisis sistem</h2><p class="sub">Mengikuti tahapan pada lembar soal UAS; setiap menu di sisi kiri mewakili satu tahap.</p>
+  <div class="grid g3">
+    {% for no,t,d,h in [('1','Business Understanding & EDA','Rumuskan masalah, eksplorasi, audit kualitas data.','/eda'),('2','Preprocessing & Feature Engineering','Bersihkan data, bentuk RFM, basket_size, matriks Apriori, fitur K-Means.','/preprocessing'),('3','Apriori','Frequent itemsets & association rules (support, confidence, lift).','/apriori'),('4','K-Means','Elbow + Silhouette, profil dan label segmen.','/kmeans'),('5','Dashboard BI','KPI, tren, top produk, Apriori, K-Means, filter interaktif.','/'),('6','Rekomendasi','Prioritas, estimasi dampak berasumsi, rencana & KPI evaluasi.','/rekomendasi')] %}
+    <a href="{{ h }}" style="color:inherit;text-decoration:none"><div class="step card" style="box-shadow:none"><div class="no">{{ no }}</div><div><b>{{ t }}</b><div class="muted small">{{ d }}</div></div></div></a>
+    {% endfor %}
+  </div></div>
+{% endblock %}

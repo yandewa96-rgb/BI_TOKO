@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% block title %}Eksplorasi Data{% endblock %}
+{% block content %}
+{% set d = e.desc %}
+<div class="page-h"><div><h1>Eksplorasi Data (EDA)</h1>
+<p>Kondisi awal dataset <b>sebelum</b> preprocessing: struktur, statistik, kualitas data, visualisasi, dan temuan awal.</p></div>
+<div class="pill-row"><span class="tag">Tahap 1</span><span class="tag blue">Soal 2</span></div></div>
+<div class="toc"><a href="#s-struktur">Struktur data</a><a href="#s-stat">Statistik</a><a href="#s-kualitas">Kualitas data</a><a href="#s-visual">Visualisasi</a><a href="#s-temuan">Temuan awal</a></div>
+
+<div class="sec" id="s-struktur"><h2>2a · Struktur dataset</h2><div class="line"></div></div>
+<div class="kpis">
+  <div class="kpi" style="--kc:#0e7c86"><div class="l">Jumlah baris</div><div class="v">{{ e.shape.rows|num }}</div><div class="d">baris item transaksi (bukan jumlah transaksi)</div></div>
+  <div class="kpi" style="--kc:#3b6fd4"><div class="l">Jumlah kolom</div><div class="v">{{ e.shape.cols }}</div><div class="d">atribut pada sheet Data_Raw</div></div>
+  <div class="kpi" style="--kc:#e8a317"><div class="l">Rentang waktu</div><div class="v" style="font-size:20px;padding:5px 0">{{ e.date_min[:10] }} → {{ e.date_max[:10] }}</div><div class="d">{{ e.span_days }} hari · 12 bulan</div></div>
+  <div class="kpi" style="--kc:#8e5bd0"><div class="l">Transaksi unik</div><div class="v">{{ d.n_trans|num }}</div><div class="d">rata-rata {{ (d.n_rows/d.n_trans)|num(2) }} baris per nota</div></div>
+</div>
+<div class="card mt"><h3>Tipe data per kolom</h3>
+<div class="tbl-wrap"><table class="t compact"><thead><tr><th>Kolom</th><th>Tipe terbaca</th><th>Tipe diharapkan (kamus data)</th><th class="r">Nilai unik</th><th class="r">Kosong</th><th>Contoh nilai</th></tr></thead><tbody>
+{% for c in e.dtypes %}<tr><td><code>{{ c.col }}</code></td><td>{{ c.dtype }}</td><td>{{ c.expected }}</td><td class="r">{{ c.nunique|num }}</td><td class="r">{% if c.missing %}<span class="tag red">{{ c.missing }}</span>{% else %}0{% endif %}</td><td class="muted">{{ c.example }}</td></tr>{% endfor %}
+</tbody></table></div></div>
+
+<div class="sec" id="s-stat"><h2>2b · Statistik deskriptif</h2><div class="line"></div></div>
+<div class="grid g4">
+  <div class="kpi mini" style="--kc:#0e7c86"><div class="l">Total penjualan mentah</div><div class="v">{{ d.total_sales_raw|rps }}</div><div class="d">jumlah Line_Total, sebelum dibersihkan</div></div>
+  <div class="kpi mini" style="--kc:#3b6fd4"><div class="l">Pelanggan unik</div><div class="v">{{ d.n_cust|num }}</div><div class="d">Customer_ID terisi (referensi 1.500)</div></div>
+  <div class="kpi mini" style="--kc:#e8a317"><div class="l">Produk unik</div><div class="v">{{ d.n_prod }}</div><div class="d">dari 12 varian penulisan kategori</div></div>
+  <div class="kpi mini" style="--kc:#8e5bd0"><div class="l">Rata-rata jumlah pembelian</div><div class="v">{{ d.avg_qty_raw|num(2) }}</div><div class="d">median {{ d.median_qty|num(0) }} · tanpa qty tidak valid {{ d.avg_qty_valid|num(2) }}</div></div>
+</div>
+<div class="card mt"><h3>Ringkasan numerik</h3>
+<div class="tbl-wrap"><table class="t compact"><thead><tr><th>Kolom</th><th class="r">Terisi</th><th class="r">Rata-rata</th><th class="r">Std</th><th class="r">Min</th><th class="r">Q1</th><th class="r">Median</th><th class="r">Q3</th><th class="r">Maks</th></tr></thead><tbody>
+{% for r in e.numdesc %}<tr><td><code>{{ r.col }}</code></td><td class="r">{{ r['count']|num }}</td><td class="r">{{ r['mean']|num(2) }}</td><td class="r">{{ r['std']|num(2) }}</td><td class="r">{{ r['min']|num(2) }}</td><td class="r">{{ r['25%']|num(2) }}</td><td class="r">{{ r['50%']|num(2) }}</td><td class="r">{{ r['75%']|num(2) }}</td><td class="r">{{ r['max']|num(2) }}</td></tr>{% endfor %}
+</tbody></table></div>
+<p class="muted small" style="margin:10px 0 0">Perhatikan <code>Quantity</code> (maks 999, min −2) dan <code>Unit_Price</code> (maks 999.999, min −100): nilai maksimum/minimum yang jauh dari kuartil menandakan data tidak wajar.</p></div>
+
+<div class="sec" id="s-kualitas"><h2>2c · Kualitas data</h2><div class="line"></div></div>
+{% set a = e.audit %}
+<div class="grid g3">
+  <div class="card"><h3>Missing values</h3><p class="sub">{{ a.missing.values()|sum }} sel kosong pada {{ a.missing|length }} kolom</p>
+    <div class="tbl-wrap"><table class="t compact"><tbody>{% for m in e.missing if m.n %}<tr><td><code>{{ m.col }}</code></td><td class="r">{{ m.n }}</td><td class="r muted">{{ m.pct|pct(2) }}</td></tr>{% endfor %}</tbody></table></div></div>
+  <div class="card"><h3>Duplikasi &amp; inkonsistensi</h3><p class="sub">Bentuk masalah selain nilai kosong</p>
+    <div class="tbl-wrap"><table class="t compact"><tbody>
+      <tr><td>Baris duplikat persis</td><td class="r"><span class="tag red">{{ a.duplicates_exact }}</span></td></tr>
+      <tr><td>Category berbeda penulisan</td><td class="r"><span class="tag amber">{{ a.cat_inconsistent }}</span></td></tr>
+      <tr><td>Payment_Method berbeda ejaan</td><td class="r"><span class="tag amber">{{ a.pay_inconsistent }}</span></td></tr>
+      <tr><td>Line_Total ≠ Qty × Harga × (1−Diskon)</td><td class="r"><span class="tag amber">{{ a.linetotal_inconsistent }}</span></td></tr></tbody></table></div></div>
+  <div class="card"><h3>Nilai tidak wajar (outlier)</h3><p class="sub">Aturan bisnis &amp; IQR</p>
+    <div class="tbl-wrap"><table class="t compact"><tbody>
+      <tr><td>Quantity ≤ 0</td><td class="r"><span class="tag red">{{ a.qty_nonpositive }}</span></td></tr>
+      <tr><td>Quantity = 999 (&gt; 50)</td><td class="r"><span class="tag red">{{ a.qty_extreme }}</span></td></tr>
+      <tr><td>Unit_Price ≤ 0 (−100)</td><td class="r"><span class="tag red">{{ a.price_nonpositive }}</span></td></tr>
+      <tr><td>Unit_Price ekstrem (999999)</td><td class="r"><span class="tag red">{{ a.price_extreme }}</span></td></tr>
+      <tr><td>Line_Total &gt; batas IQR ({{ e.iqr.upper|rp }})</td><td class="r"><span class="tag gray">{{ e.iqr.n|num }}</span></td></tr></tbody></table></div></div>
+</div>
+
+<div class="sec" id="s-visual"><h2>2d · Visualisasi awal</h2><div class="line"></div></div>
+<div class="grid g-21">
+  <div class="card"><h3>Tren penjualan bulanan (mentah)</h3><p class="sub">Penjualan dan jumlah transaksi unik per bulan.</p><div class="chart"><canvas id="v-month"></canvas></div></div>
+  <div class="card"><h3>Distribusi penjualan per kategori</h3><p class="sub">Kategori dinormalkan lewat katalog produk.</p><div class="chart"><canvas id="v-cat"></canvas></div></div>
+</div>
+<div class="grid g2 mt">
+  <div class="card"><h3>10 produk dengan penjualan tertinggi</h3><div class="chart"><canvas id="v-top"></canvas></div></div>
+  <div class="card"><h3>Distribusi Quantity — bukti nilai tidak wajar</h3><p class="sub">Terlihat nilai ≤ 0 dan &gt; 50 yang tidak wajar untuk ritel.</p><div class="chart"><canvas id="v-qty"></canvas></div></div>
+</div>
+<div class="grid g3 mt">
+  <div class="card"><h3>Varian penulisan Payment_Method</h3><p class="sub">Tujuh varian untuk empat metode.</p><div class="chart sm"><canvas id="v-pay"></canvas></div></div>
+  <div class="card"><h3>Jumlah transaksi per jam</h3><p class="sub">Pola jam kunjungan.</p><div class="chart sm"><canvas id="v-hour"></canvas></div></div>
+  <div class="card"><h3>Distribusi basket size</h3><p class="sub">Produk berbeda per nota.</p><div class="chart sm"><canvas id="v-basket"></canvas></div></div>
+</div>
+
+<div class="sec" id="s-temuan"><h2>2e · Temuan awal</h2><span class="tag">≥ 3 temuan</span><div class="line"></div></div>
+<div class="card"><ol class="clean" style="font-size:14px">{% for f in e.findings %}<li>{{ f }}</li>{% endfor %}</ol></div>
+{% endblock %}
+{% block scripts %}
+<script>
+const E = {{ e|tojson }};
+comboTrend('v-month', E.monthly.labels, E.monthly.rev, E.monthly.trx);
+doughnut('v-cat', E.categories.labels, E.categories.values, { fmt: fmt.rps });
+barChart('v-top', E.top_products.labels, E.top_products.values, { horizontal: true, fmt: fmt.rps, thick: 20 });
+barChart('v-qty', E.qty_dist.labels, E.qty_dist.values, { colors: E.qty_dist.labels.map(l => (l === '<= 0' || l === '> 50') ? '#d9453d' : '#0e7c86') });
+barChart('v-pay', E.payment.labels, E.payment.values, { horizontal: true, colors: E.payment.labels.map(l => ['Tunai','Debit','Transfer','QRIS'].includes(l) ? '#0e7c86' : '#e8a317'), thick: 16 });
+barChart('v-hour', E.hourly.labels, E.hourly.values, { color: '#3b6fd4' });
+barChart('v-basket', E.basket_dist.labels, E.basket_dist.values, { color: '#8e5bd0' });
+</script>
+{% endblock %}

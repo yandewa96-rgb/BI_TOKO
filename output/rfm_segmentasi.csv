@@ -1,0 +1,1481 @@
+Customer_ID,Frequency,Monetary,avg_basket,Recency,cluster,Segment
+C0001,4,324125,2.5,35,0,Potensial (Mulai Pasif)
+C0002,2,186075,3.5,81,2,Berisiko Churn
+C0003,5,634200,3.6,33,1,Loyal / Champions
+C0004,3,594550,4.0,57,0,Potensial (Mulai Pasif)
+C0005,6,1215900,3.1666666666666665,42,0,Potensial (Mulai Pasif)
+C0006,3,310100,2.6666666666666665,69,0,Potensial (Mulai Pasif)
+C0007,4,482675,3.25,23,1,Loyal / Champions
+C0008,6,401175,2.8333333333333335,5,1,Loyal / Champions
+C0009,5,206875,2.2,73,0,Potensial (Mulai Pasif)
+C0010,6,650425,3.8333333333333335,18,1,Loyal / Champions
+C0011,4,497775,3.5,136,0,Potensial (Mulai Pasif)
+C0012,3,488600,4.333333333333333,154,0,Potensial (Mulai Pasif)
+C0013,5,774650,3.0,92,0,Potensial (Mulai Pasif)
+C0014,3,243325,2.6666666666666665,4,1,Loyal / Champions
+C0015,5,328475,2.4,19,1,Loyal / Champions
+C0017,2,333125,2.5,26,2,Berisiko Churn
+C0018,5,494650,2.8,36,0,Potensial (Mulai Pasif)
+C0019,5,269425,2.6,49,0,Potensial (Mulai Pasif)
+C0020,3,366175,3.0,14,1,Loyal / Champions
+C0021,6,912850,3.1666666666666665,65,0,Potensial (Mulai Pasif)
+C0022,5,1203850,4.0,80,0,Potensial (Mulai Pasif)
+C0023,4,644050,2.25,41,0,Potensial (Mulai Pasif)
+C0024,6,458375,3.0,73,0,Potensial (Mulai Pasif)
+C0025,2,57850,2.0,221,2,Berisiko Churn
+C0026,4,378450,2.75,3,1,Loyal / Champions
+C0027,4,562650,2.75,43,0,Potensial (Mulai Pasif)
+C0028,3,396950,3.3333333333333335,42,0,Potensial (Mulai Pasif)
+C0029,3,101575,2.6666666666666665,104,2,Berisiko Churn
+C0030,5,630275,3.0,29,1,Loyal / Champions
+C0031,2,178900,4.5,44,2,Berisiko Churn
+C0032,2,425300,3.5,180,2,Berisiko Churn
+C0033,3,247525,4.0,69,0,Potensial (Mulai Pasif)
+C0034,5,559900,3.2,83,0,Potensial (Mulai Pasif)
+C0035,3,432975,3.0,117,0,Potensial (Mulai Pasif)
+C0036,2,361450,4.0,65,2,Berisiko Churn
+C0037,3,482350,4.333333333333333,136,0,Potensial (Mulai Pasif)
+C0038,5,566300,3.4,28,1,Loyal / Champions
+C0039,2,477400,4.0,71,0,Potensial (Mulai Pasif)
+C0040,4,286000,2.75,132,0,Potensial (Mulai Pasif)
+C0041,6,896250,3.0,103,0,Potensial (Mulai Pasif)
+C0042,4,287550,2.5,134,0,Potensial (Mulai Pasif)
+C0043,6,561250,3.1666666666666665,9,1,Loyal / Champions
+C0044,6,582525,3.5,61,0,Potensial (Mulai Pasif)
+C0045,3,285275,3.0,100,0,Potensial (Mulai Pasif)
+C0046,3,251475,3.0,147,2,Berisiko Churn
+C0047,4,671650,3.0,71,0,Potensial (Mulai Pasif)
+C0048,6,509325,2.5,35,1,Loyal / Champions
+C0049,4,376750,3.5,206,0,Potensial (Mulai Pasif)
+C0050,2,370675,3.0,53,2,Berisiko Churn
+C0051,3,168650,2.3333333333333335,13,1,Loyal / Champions
+C0052,2,229475,4.5,24,2,Berisiko Churn
+C0053,6,740625,2.8333333333333335,11,1,Loyal / Champions
+C0054,2,217350,2.5,40,2,Berisiko Churn
+C0056,2,129525,2.5,299,2,Berisiko Churn
+C0057,5,315725,2.8,63,0,Potensial (Mulai Pasif)
+C0058,3,799000,3.6666666666666665,122,0,Potensial (Mulai Pasif)
+C0059,7,596600,2.5714285714285716,72,0,Potensial (Mulai Pasif)
+C0060,10,1149000,2.6,9,1,Loyal / Champions
+C0061,1,57400,3.0,128,2,Berisiko Churn
+C0062,6,849750,3.6666666666666665,51,0,Potensial (Mulai Pasif)
+C0063,4,513100,2.75,70,0,Potensial (Mulai Pasif)
+C0064,3,496450,3.0,1,1,Loyal / Champions
+C0065,5,583800,3.4,11,1,Loyal / Champions
+C0066,1,256600,4.0,180,2,Berisiko Churn
+C0067,5,516575,3.8,116,0,Potensial (Mulai Pasif)
+C0068,5,424150,2.6,190,0,Potensial (Mulai Pasif)
+C0069,5,512725,3.0,52,0,Potensial (Mulai Pasif)
+C0070,7,843075,3.2857142857142856,178,0,Potensial (Mulai Pasif)
+C0071,5,201525,2.2,51,0,Potensial (Mulai Pasif)
+C0072,2,289800,4.0,205,2,Berisiko Churn
+C0073,4,220550,2.5,95,0,Potensial (Mulai Pasif)
+C0074,3,183850,2.3333333333333335,55,2,Berisiko Churn
+C0075,2,342425,3.0,83,2,Berisiko Churn
+C0076,1,26450,2.0,59,2,Berisiko Churn
+C0077,5,393225,2.4,129,0,Potensial (Mulai Pasif)
+C0078,6,822800,2.8333333333333335,85,0,Potensial (Mulai Pasif)
+C0079,3,332100,2.6666666666666665,60,0,Potensial (Mulai Pasif)
+C0080,3,243650,2.3333333333333335,89,2,Berisiko Churn
+C0081,4,465475,3.75,36,0,Potensial (Mulai Pasif)
+C0082,4,735200,2.75,4,1,Loyal / Champions
+C0083,8,876000,3.25,79,0,Potensial (Mulai Pasif)
+C0084,5,417625,2.4,28,1,Loyal / Champions
+C0085,3,343875,4.0,46,0,Potensial (Mulai Pasif)
+C0086,7,775350,3.4285714285714284,8,1,Loyal / Champions
+C0087,5,596225,3.6,87,0,Potensial (Mulai Pasif)
+C0088,5,469300,3.0,11,1,Loyal / Champions
+C0089,6,781050,3.0,93,0,Potensial (Mulai Pasif)
+C0090,6,837900,3.3333333333333335,66,0,Potensial (Mulai Pasif)
+C0091,6,477400,2.8333333333333335,15,1,Loyal / Champions
+C0092,6,816350,3.0,69,0,Potensial (Mulai Pasif)
+C0093,2,101625,3.0,51,2,Berisiko Churn
+C0094,4,204400,3.0,40,0,Potensial (Mulai Pasif)
+C0095,2,127525,3.5,58,2,Berisiko Churn
+C0096,7,676900,3.2857142857142856,180,0,Potensial (Mulai Pasif)
+C0097,7,1508475,3.142857142857143,49,0,Potensial (Mulai Pasif)
+C0098,5,815725,3.4,13,1,Loyal / Champions
+C0099,3,775875,3.3333333333333335,7,1,Loyal / Champions
+C0100,4,261075,3.0,77,0,Potensial (Mulai Pasif)
+C0101,1,104925,4.0,208,2,Berisiko Churn
+C0102,3,302650,2.3333333333333335,125,0,Potensial (Mulai Pasif)
+C0103,2,391950,2.0,12,1,Loyal / Champions
+C0104,1,16000,1.0,240,2,Berisiko Churn
+C0105,3,210725,2.3333333333333335,50,2,Berisiko Churn
+C0106,5,661300,2.6,2,1,Loyal / Champions
+C0107,6,445100,2.5,19,1,Loyal / Champions
+C0108,7,817150,3.2857142857142856,7,1,Loyal / Champions
+C0109,6,534125,3.0,41,0,Potensial (Mulai Pasif)
+C0110,4,382975,3.25,15,1,Loyal / Champions
+C0111,1,87950,3.0,250,2,Berisiko Churn
+C0112,2,65350,2.0,190,2,Berisiko Churn
+C0113,3,285550,3.6666666666666665,50,0,Potensial (Mulai Pasif)
+C0114,3,322375,3.6666666666666665,101,0,Potensial (Mulai Pasif)
+C0115,1,238500,3.0,198,2,Berisiko Churn
+C0116,4,473000,2.5,13,1,Loyal / Champions
+C0117,2,145825,2.0,256,2,Berisiko Churn
+C0118,6,584975,2.6666666666666665,52,0,Potensial (Mulai Pasif)
+C0119,2,279025,4.5,201,2,Berisiko Churn
+C0120,4,165275,2.25,1,1,Loyal / Champions
+C0121,7,1102700,3.5714285714285716,41,1,Loyal / Champions
+C0122,2,328450,3.5,28,2,Berisiko Churn
+C0123,9,1643300,3.4444444444444446,38,1,Loyal / Champions
+C0124,4,485350,3.5,143,0,Potensial (Mulai Pasif)
+C0125,5,717550,3.0,152,0,Potensial (Mulai Pasif)
+C0126,6,572925,2.5,45,0,Potensial (Mulai Pasif)
+C0127,5,975100,3.8,36,0,Potensial (Mulai Pasif)
+C0128,2,130125,2.5,38,2,Berisiko Churn
+C0129,2,447300,4.0,108,0,Potensial (Mulai Pasif)
+C0130,4,1138550,3.5,58,0,Potensial (Mulai Pasif)
+C0131,7,497475,2.7142857142857144,2,1,Loyal / Champions
+C0132,9,906850,3.111111111111111,5,1,Loyal / Champions
+C0133,5,567900,2.6,110,0,Potensial (Mulai Pasif)
+C0134,9,665925,2.3333333333333335,4,1,Loyal / Champions
+C0135,4,359800,3.25,193,0,Potensial (Mulai Pasif)
+C0136,4,714175,3.25,8,1,Loyal / Champions
+C0137,4,603700,3.0,160,0,Potensial (Mulai Pasif)
+C0138,6,472800,2.6666666666666665,6,1,Loyal / Champions
+C0139,7,715675,2.7142857142857144,45,0,Potensial (Mulai Pasif)
+C0140,4,567475,2.0,49,0,Potensial (Mulai Pasif)
+C0141,6,411275,2.8333333333333335,1,1,Loyal / Champions
+C0142,2,413750,3.0,90,2,Berisiko Churn
+C0143,5,330025,2.8,105,0,Potensial (Mulai Pasif)
+C0144,3,525575,3.6666666666666665,73,0,Potensial (Mulai Pasif)
+C0145,3,394850,4.0,121,0,Potensial (Mulai Pasif)
+C0146,4,402150,2.75,35,0,Potensial (Mulai Pasif)
+C0147,3,818675,3.3333333333333335,60,0,Potensial (Mulai Pasif)
+C0148,2,184475,3.5,158,2,Berisiko Churn
+C0149,4,262500,2.5,113,0,Potensial (Mulai Pasif)
+C0150,3,93200,2.6666666666666665,9,2,Berisiko Churn
+C0151,4,241350,3.25,175,0,Potensial (Mulai Pasif)
+C0152,4,537250,3.5,52,0,Potensial (Mulai Pasif)
+C0153,4,215475,3.0,71,0,Potensial (Mulai Pasif)
+C0154,7,354350,2.857142857142857,81,0,Potensial (Mulai Pasif)
+C0155,5,319350,2.6,111,0,Potensial (Mulai Pasif)
+C0156,3,542450,3.0,162,0,Potensial (Mulai Pasif)
+C0157,3,261725,2.0,19,1,Loyal / Champions
+C0158,7,393325,2.7142857142857144,73,0,Potensial (Mulai Pasif)
+C0159,4,414925,3.25,3,1,Loyal / Champions
+C0160,4,361675,2.75,46,0,Potensial (Mulai Pasif)
+C0161,4,530725,3.75,178,0,Potensial (Mulai Pasif)
+C0162,6,835875,2.8333333333333335,82,0,Potensial (Mulai Pasif)
+C0163,8,646775,3.5,20,1,Loyal / Champions
+C0164,7,963575,4.0,55,0,Potensial (Mulai Pasif)
+C0165,2,154850,4.0,22,2,Berisiko Churn
+C0166,4,434425,3.0,28,1,Loyal / Champions
+C0167,2,154325,4.0,80,2,Berisiko Churn
+C0168,1,48800,2.0,239,2,Berisiko Churn
+C0169,4,437250,2.0,99,0,Potensial (Mulai Pasif)
+C0170,4,573625,2.5,224,0,Potensial (Mulai Pasif)
+C0171,4,1056575,3.75,57,0,Potensial (Mulai Pasif)
+C0172,4,842425,3.0,180,0,Potensial (Mulai Pasif)
+C0173,3,194450,2.6666666666666665,220,2,Berisiko Churn
+C0174,5,1055625,3.8,51,0,Potensial (Mulai Pasif)
+C0175,6,720575,3.3333333333333335,26,1,Loyal / Champions
+C0176,2,453925,3.5,307,2,Berisiko Churn
+C0177,3,197975,3.6666666666666665,314,2,Berisiko Churn
+C0178,5,790725,3.0,77,0,Potensial (Mulai Pasif)
+C0179,2,243725,2.0,53,2,Berisiko Churn
+C0181,3,643450,3.3333333333333335,35,0,Potensial (Mulai Pasif)
+C0182,2,119600,3.5,190,2,Berisiko Churn
+C0183,4,277900,2.5,43,0,Potensial (Mulai Pasif)
+C0184,5,290975,2.4,9,1,Loyal / Champions
+C0185,4,641000,2.0,75,0,Potensial (Mulai Pasif)
+C0186,1,129750,3.0,308,2,Berisiko Churn
+C0187,7,1017275,2.7142857142857144,109,0,Potensial (Mulai Pasif)
+C0188,2,252075,4.0,262,2,Berisiko Churn
+C0189,3,221900,3.3333333333333335,225,2,Berisiko Churn
+C0190,2,104475,3.0,290,2,Berisiko Churn
+C0191,6,423675,2.8333333333333335,28,1,Loyal / Champions
+C0192,5,732200,3.2,109,0,Potensial (Mulai Pasif)
+C0193,3,729650,2.0,12,1,Loyal / Champions
+C0194,7,545400,3.142857142857143,14,1,Loyal / Champions
+C0195,1,32000,1.0,304,2,Berisiko Churn
+C0196,1,32000,2.0,180,2,Berisiko Churn
+C0197,3,464150,2.6666666666666665,24,1,Loyal / Champions
+C0198,3,289000,2.6666666666666665,86,0,Potensial (Mulai Pasif)
+C0199,5,345550,3.0,56,0,Potensial (Mulai Pasif)
+C0200,1,3600,1.0,44,2,Berisiko Churn
+C0201,6,718575,2.8333333333333335,12,1,Loyal / Champions
+C0202,4,499250,2.5,30,1,Loyal / Champions
+C0203,6,1288075,3.8333333333333335,83,0,Potensial (Mulai Pasif)
+C0204,1,208575,4.0,138,2,Berisiko Churn
+C0205,8,915650,3.0,11,1,Loyal / Champions
+C0206,3,468000,3.3333333333333335,6,1,Loyal / Champions
+C0207,4,274775,3.25,82,0,Potensial (Mulai Pasif)
+C0208,4,370125,3.75,9,1,Loyal / Champions
+C0209,2,158575,2.5,164,2,Berisiko Churn
+C0210,4,383650,3.5,11,1,Loyal / Champions
+C0211,7,896625,2.142857142857143,31,1,Loyal / Champions
+C0212,6,507850,2.8333333333333335,46,0,Potensial (Mulai Pasif)
+C0213,8,669250,3.0,16,1,Loyal / Champions
+C0214,2,86600,3.5,155,2,Berisiko Churn
+C0215,7,974050,3.4285714285714284,105,0,Potensial (Mulai Pasif)
+C0216,4,230675,2.75,29,0,Potensial (Mulai Pasif)
+C0217,5,335700,2.8,79,0,Potensial (Mulai Pasif)
+C0218,8,1420475,3.5,29,1,Loyal / Champions
+C0219,2,119550,3.5,60,2,Berisiko Churn
+C0220,4,349400,2.75,62,0,Potensial (Mulai Pasif)
+C0221,3,239200,2.3333333333333335,42,0,Potensial (Mulai Pasif)
+C0222,3,709075,3.3333333333333335,60,0,Potensial (Mulai Pasif)
+C0223,1,27625,2.0,259,2,Berisiko Churn
+C0224,4,517475,3.75,135,0,Potensial (Mulai Pasif)
+C0225,4,627725,4.75,28,1,Loyal / Champions
+C0226,7,845850,2.7142857142857144,3,1,Loyal / Champions
+C0227,6,706325,3.1666666666666665,32,1,Loyal / Champions
+C0228,5,597650,3.2,61,0,Potensial (Mulai Pasif)
+C0229,2,512000,4.0,21,1,Loyal / Champions
+C0230,5,296500,3.0,51,0,Potensial (Mulai Pasif)
+C0231,5,654550,2.6,133,0,Potensial (Mulai Pasif)
+C0232,3,560625,4.333333333333333,178,0,Potensial (Mulai Pasif)
+C0233,7,598275,3.2857142857142856,43,0,Potensial (Mulai Pasif)
+C0234,6,822450,2.3333333333333335,26,1,Loyal / Champions
+C0235,3,553400,3.3333333333333335,11,1,Loyal / Champions
+C0236,2,470550,2.0,201,0,Potensial (Mulai Pasif)
+C0237,2,226675,4.0,319,2,Berisiko Churn
+C0238,4,201950,2.75,83,0,Potensial (Mulai Pasif)
+C0239,7,459025,2.7142857142857144,123,0,Potensial (Mulai Pasif)
+C0240,1,134600,4.0,64,2,Berisiko Churn
+C0241,2,571425,4.0,342,0,Potensial (Mulai Pasif)
+C0242,4,577550,3.75,138,0,Potensial (Mulai Pasif)
+C0243,2,65500,1.5,195,2,Berisiko Churn
+C0244,2,326450,3.0,56,2,Berisiko Churn
+C0245,1,126575,3.0,156,2,Berisiko Churn
+C0246,2,94325,3.0,260,2,Berisiko Churn
+C0247,5,880225,4.0,47,0,Potensial (Mulai Pasif)
+C0248,4,744850,3.5,12,1,Loyal / Champions
+C0249,4,626625,2.5,107,0,Potensial (Mulai Pasif)
+C0250,4,475150,3.5,79,0,Potensial (Mulai Pasif)
+C0251,2,112825,3.0,113,2,Berisiko Churn
+C0252,4,478300,3.0,11,1,Loyal / Champions
+C0253,6,384775,2.5,35,1,Loyal / Champions
+C0254,5,686750,3.2,108,0,Potensial (Mulai Pasif)
+C0255,4,536525,3.75,136,0,Potensial (Mulai Pasif)
+C0256,4,304850,1.5,98,0,Potensial (Mulai Pasif)
+C0257,5,508650,2.8,86,0,Potensial (Mulai Pasif)
+C0258,1,35000,1.0,146,2,Berisiko Churn
+C0259,2,201000,1.5,39,2,Berisiko Churn
+C0260,2,206475,3.5,233,2,Berisiko Churn
+C0261,2,428150,3.0,170,2,Berisiko Churn
+C0262,7,811525,3.5714285714285716,121,0,Potensial (Mulai Pasif)
+C0263,5,414500,2.6,22,1,Loyal / Champions
+C0264,6,542300,3.0,50,0,Potensial (Mulai Pasif)
+C0265,3,278025,3.0,60,0,Potensial (Mulai Pasif)
+C0266,2,368250,3.0,96,2,Berisiko Churn
+C0267,4,310200,2.75,100,0,Potensial (Mulai Pasif)
+C0268,5,392675,2.8,42,0,Potensial (Mulai Pasif)
+C0270,4,385525,3.0,19,1,Loyal / Champions
+C0271,1,182600,3.0,333,2,Berisiko Churn
+C0272,4,753475,4.5,116,0,Potensial (Mulai Pasif)
+C0273,5,640275,4.0,8,1,Loyal / Champions
+C0274,5,787300,2.4,6,1,Loyal / Champions
+C0275,4,704875,4.5,53,0,Potensial (Mulai Pasif)
+C0276,3,209250,2.6666666666666665,221,2,Berisiko Churn
+C0277,4,347275,3.25,75,0,Potensial (Mulai Pasif)
+C0278,3,275750,2.6666666666666665,36,0,Potensial (Mulai Pasif)
+C0279,3,658625,3.3333333333333335,22,1,Loyal / Champions
+C0280,1,109250,5.0,346,2,Berisiko Churn
+C0281,4,458775,3.25,75,0,Potensial (Mulai Pasif)
+C0282,3,319100,3.0,23,1,Loyal / Champions
+C0283,2,170525,3.5,87,2,Berisiko Churn
+C0284,1,141500,3.0,97,2,Berisiko Churn
+C0285,4,565050,3.0,107,0,Potensial (Mulai Pasif)
+C0286,4,1134800,3.5,36,0,Potensial (Mulai Pasif)
+C0287,6,780650,2.8333333333333335,28,1,Loyal / Champions
+C0288,3,440900,3.3333333333333335,22,1,Loyal / Champions
+C0289,5,417200,3.8,96,0,Potensial (Mulai Pasif)
+C0290,6,824075,2.8333333333333335,58,0,Potensial (Mulai Pasif)
+C0291,3,173925,3.0,49,2,Berisiko Churn
+C0292,3,207550,2.3333333333333335,30,2,Berisiko Churn
+C0293,7,740200,2.2857142857142856,48,0,Potensial (Mulai Pasif)
+C0294,4,747550,3.25,112,0,Potensial (Mulai Pasif)
+C0295,3,245500,3.6666666666666665,36,0,Potensial (Mulai Pasif)
+C0296,7,565475,2.4285714285714284,91,0,Potensial (Mulai Pasif)
+C0297,2,330600,3.5,236,2,Berisiko Churn
+C0298,4,267700,2.5,21,1,Loyal / Champions
+C0299,6,201675,1.8333333333333333,62,0,Potensial (Mulai Pasif)
+C0300,2,174500,3.0,28,2,Berisiko Churn
+C0301,5,791025,3.2,37,0,Potensial (Mulai Pasif)
+C0302,5,357925,2.8,24,1,Loyal / Champions
+C0303,10,789650,2.6,24,1,Loyal / Champions
+C0304,3,418450,3.0,201,0,Potensial (Mulai Pasif)
+C0305,4,429400,3.0,304,0,Potensial (Mulai Pasif)
+C0306,5,827600,3.6,121,0,Potensial (Mulai Pasif)
+C0307,1,329200,3.0,302,2,Berisiko Churn
+C0308,4,643575,3.5,33,0,Potensial (Mulai Pasif)
+C0309,4,282150,3.0,170,0,Potensial (Mulai Pasif)
+C0310,5,585975,4.0,61,0,Potensial (Mulai Pasif)
+C0311,2,253050,3.5,96,2,Berisiko Churn
+C0312,4,484775,3.0,29,1,Loyal / Champions
+C0313,4,611625,3.5,43,0,Potensial (Mulai Pasif)
+C0314,5,484575,3.8,6,1,Loyal / Champions
+C0315,4,431200,3.25,40,0,Potensial (Mulai Pasif)
+C0316,4,517575,2.0,34,0,Potensial (Mulai Pasif)
+C0317,5,327650,3.6,10,1,Loyal / Champions
+C0318,2,233250,4.5,141,2,Berisiko Churn
+C0319,5,529175,3.8,38,0,Potensial (Mulai Pasif)
+C0320,2,156550,2.5,165,2,Berisiko Churn
+C0321,4,632625,3.25,69,0,Potensial (Mulai Pasif)
+C0322,3,98000,2.6666666666666665,26,2,Berisiko Churn
+C0323,5,384725,3.4,11,1,Loyal / Champions
+C0324,9,973900,2.888888888888889,5,1,Loyal / Champions
+C0325,1,22000,1.0,95,2,Berisiko Churn
+C0326,5,683775,2.8,88,0,Potensial (Mulai Pasif)
+C0327,4,510725,2.75,139,0,Potensial (Mulai Pasif)
+C0328,1,157500,3.0,308,2,Berisiko Churn
+C0329,3,249975,3.3333333333333335,121,2,Berisiko Churn
+C0330,7,1002775,3.5714285714285716,18,1,Loyal / Champions
+C0331,2,273150,2.0,99,2,Berisiko Churn
+C0332,9,989100,3.0,6,1,Loyal / Champions
+C0333,6,1158150,3.0,174,0,Potensial (Mulai Pasif)
+C0334,8,1118700,3.5,45,1,Loyal / Champions
+C0335,1,38400,2.0,80,2,Berisiko Churn
+C0336,3,319400,3.6666666666666665,12,1,Loyal / Champions
+C0337,3,343125,4.0,198,0,Potensial (Mulai Pasif)
+C0338,5,678025,3.6,20,1,Loyal / Champions
+C0339,6,741850,3.6666666666666665,5,1,Loyal / Champions
+C0340,4,757825,3.25,74,0,Potensial (Mulai Pasif)
+C0341,3,479125,4.0,38,0,Potensial (Mulai Pasif)
+C0342,2,63825,1.5,182,2,Berisiko Churn
+C0343,1,46800,3.0,357,2,Berisiko Churn
+C0344,6,767100,3.3333333333333335,108,0,Potensial (Mulai Pasif)
+C0345,6,693700,3.0,12,1,Loyal / Champions
+C0346,3,313650,3.6666666666666665,49,0,Potensial (Mulai Pasif)
+C0347,3,202800,3.3333333333333335,118,2,Berisiko Churn
+C0348,3,358625,3.0,186,0,Potensial (Mulai Pasif)
+C0349,3,440475,3.0,37,0,Potensial (Mulai Pasif)
+C0350,6,1496025,3.5,13,1,Loyal / Champions
+C0351,3,148175,2.3333333333333335,63,2,Berisiko Churn
+C0352,2,439325,3.5,69,0,Potensial (Mulai Pasif)
+C0353,2,164900,4.0,45,2,Berisiko Churn
+C0354,5,412600,2.4,121,0,Potensial (Mulai Pasif)
+C0355,4,406800,3.0,48,0,Potensial (Mulai Pasif)
+C0356,4,319825,2.75,65,0,Potensial (Mulai Pasif)
+C0357,9,1369000,3.4444444444444446,58,0,Potensial (Mulai Pasif)
+C0358,1,39000,1.0,307,2,Berisiko Churn
+C0359,4,472600,3.25,165,0,Potensial (Mulai Pasif)
+C0360,3,295800,3.0,92,0,Potensial (Mulai Pasif)
+C0361,4,378575,2.5,73,0,Potensial (Mulai Pasif)
+C0362,2,323200,3.0,235,2,Berisiko Churn
+C0363,3,172025,3.6666666666666665,90,2,Berisiko Churn
+C0364,6,670350,4.166666666666667,4,1,Loyal / Champions
+C0365,2,408925,4.0,251,2,Berisiko Churn
+C0366,3,612150,3.0,55,0,Potensial (Mulai Pasif)
+C0367,4,799200,2.75,53,0,Potensial (Mulai Pasif)
+C0368,2,197250,3.5,51,2,Berisiko Churn
+C0369,2,279000,3.0,36,2,Berisiko Churn
+C0370,7,1054650,3.5714285714285716,55,0,Potensial (Mulai Pasif)
+C0371,2,504500,3.0,5,1,Loyal / Champions
+C0372,5,235550,3.0,2,1,Loyal / Champions
+C0373,2,234075,3.5,84,2,Berisiko Churn
+C0374,7,1111525,3.4285714285714284,70,0,Potensial (Mulai Pasif)
+C0375,5,426150,2.8,33,0,Potensial (Mulai Pasif)
+C0376,5,806450,3.6,17,1,Loyal / Champions
+C0377,3,319200,3.0,46,0,Potensial (Mulai Pasif)
+C0378,3,563350,3.6666666666666665,58,0,Potensial (Mulai Pasif)
+C0379,4,404050,3.0,55,0,Potensial (Mulai Pasif)
+C0380,3,145050,2.6666666666666665,65,2,Berisiko Churn
+C0381,5,365950,3.2,37,0,Potensial (Mulai Pasif)
+C0382,4,630300,3.0,2,1,Loyal / Champions
+C0383,3,196275,3.0,96,2,Berisiko Churn
+C0384,5,452200,3.0,26,1,Loyal / Champions
+C0385,4,473775,3.5,5,1,Loyal / Champions
+C0386,5,363750,3.0,243,0,Potensial (Mulai Pasif)
+C0387,5,868400,2.6,31,1,Loyal / Champions
+C0388,4,610850,4.0,185,0,Potensial (Mulai Pasif)
+C0389,3,397125,2.6666666666666665,154,0,Potensial (Mulai Pasif)
+C0390,3,336000,4.0,76,0,Potensial (Mulai Pasif)
+C0391,2,501100,2.5,78,0,Potensial (Mulai Pasif)
+C0392,2,141075,3.0,177,2,Berisiko Churn
+C0393,1,92575,3.0,144,2,Berisiko Churn
+C0394,5,416675,2.6,117,0,Potensial (Mulai Pasif)
+C0395,3,294650,3.3333333333333335,88,0,Potensial (Mulai Pasif)
+C0396,3,638625,3.6666666666666665,47,0,Potensial (Mulai Pasif)
+C0397,5,601100,3.0,109,0,Potensial (Mulai Pasif)
+C0398,5,523150,3.4,23,1,Loyal / Champions
+C0399,6,874950,2.8333333333333335,125,0,Potensial (Mulai Pasif)
+C0400,5,879650,2.4,36,0,Potensial (Mulai Pasif)
+C0401,2,164225,4.0,38,2,Berisiko Churn
+C0402,4,424450,2.25,4,1,Loyal / Champions
+C0403,5,611650,4.0,126,0,Potensial (Mulai Pasif)
+C0404,6,730525,3.6666666666666665,15,1,Loyal / Champions
+C0405,4,257150,2.25,21,1,Loyal / Champions
+C0406,4,275300,2.75,15,1,Loyal / Champions
+C0407,1,90850,4.0,240,2,Berisiko Churn
+C0408,1,31450,1.0,20,2,Berisiko Churn
+C0409,6,421825,2.6666666666666665,10,1,Loyal / Champions
+C0410,2,368275,4.0,306,2,Berisiko Churn
+C0411,8,950525,3.25,50,0,Potensial (Mulai Pasif)
+C0412,4,395525,3.25,128,0,Potensial (Mulai Pasif)
+C0413,2,168350,3.5,42,2,Berisiko Churn
+C0414,2,313400,3.5,109,2,Berisiko Churn
+C0415,4,522200,2.25,97,0,Potensial (Mulai Pasif)
+C0416,8,858025,3.375,15,1,Loyal / Champions
+C0417,3,640600,4.0,81,0,Potensial (Mulai Pasif)
+C0418,5,412150,2.2,82,0,Potensial (Mulai Pasif)
+C0419,4,422250,3.0,119,0,Potensial (Mulai Pasif)
+C0420,6,592150,2.8333333333333335,1,1,Loyal / Champions
+C0421,6,824300,3.1666666666666665,137,0,Potensial (Mulai Pasif)
+C0422,3,608750,2.0,50,0,Potensial (Mulai Pasif)
+C0423,9,1425500,3.6666666666666665,95,0,Potensial (Mulai Pasif)
+C0424,3,624025,2.6666666666666665,161,0,Potensial (Mulai Pasif)
+C0425,2,211175,4.0,332,2,Berisiko Churn
+C0426,3,551525,3.6666666666666665,18,1,Loyal / Champions
+C0427,7,844200,2.857142857142857,105,0,Potensial (Mulai Pasif)
+C0428,4,347775,3.25,69,0,Potensial (Mulai Pasif)
+C0429,5,397175,3.0,52,0,Potensial (Mulai Pasif)
+C0430,3,597550,3.0,45,0,Potensial (Mulai Pasif)
+C0431,5,299500,3.0,15,1,Loyal / Champions
+C0432,3,183225,2.3333333333333335,46,2,Berisiko Churn
+C0433,4,507400,2.75,73,0,Potensial (Mulai Pasif)
+C0434,2,94125,2.5,272,2,Berisiko Churn
+C0435,2,154800,2.0,77,2,Berisiko Churn
+C0436,3,466125,4.0,211,0,Potensial (Mulai Pasif)
+C0437,2,543575,5.0,18,1,Loyal / Champions
+C0438,2,496125,3.5,155,0,Potensial (Mulai Pasif)
+C0439,4,196400,3.25,12,1,Loyal / Champions
+C0440,4,376950,3.25,181,0,Potensial (Mulai Pasif)
+C0441,5,550175,3.4,68,0,Potensial (Mulai Pasif)
+C0442,5,568775,2.8,131,0,Potensial (Mulai Pasif)
+C0443,5,750400,3.0,7,1,Loyal / Champions
+C0444,3,530850,3.3333333333333335,47,0,Potensial (Mulai Pasif)
+C0445,1,244675,4.0,293,2,Berisiko Churn
+C0446,4,530400,3.0,19,1,Loyal / Champions
+C0447,5,352625,1.8,65,0,Potensial (Mulai Pasif)
+C0448,2,237050,3.0,355,2,Berisiko Churn
+C0449,7,1107000,3.0,66,0,Potensial (Mulai Pasif)
+C0450,3,136175,2.6666666666666665,108,2,Berisiko Churn
+C0451,4,486700,3.25,97,0,Potensial (Mulai Pasif)
+C0452,3,365300,2.6666666666666665,12,1,Loyal / Champions
+C0453,3,172625,2.0,163,2,Berisiko Churn
+C0454,2,265675,4.0,171,2,Berisiko Churn
+C0455,2,131050,2.5,207,2,Berisiko Churn
+C0456,7,889625,2.857142857142857,14,1,Loyal / Champions
+C0457,4,315375,3.25,32,0,Potensial (Mulai Pasif)
+C0458,2,319775,4.0,269,2,Berisiko Churn
+C0459,2,577650,3.0,124,0,Potensial (Mulai Pasif)
+C0460,7,1143750,3.5714285714285716,33,1,Loyal / Champions
+C0461,4,338475,3.0,23,1,Loyal / Champions
+C0462,2,141600,1.5,47,2,Berisiko Churn
+C0463,8,1049325,2.75,14,1,Loyal / Champions
+C0464,4,384850,3.25,103,0,Potensial (Mulai Pasif)
+C0465,3,392950,2.6666666666666665,118,0,Potensial (Mulai Pasif)
+C0466,4,234075,2.5,148,0,Potensial (Mulai Pasif)
+C0467,5,701050,2.8,45,0,Potensial (Mulai Pasif)
+C0468,2,170800,3.0,199,2,Berisiko Churn
+C0469,9,1225650,3.5555555555555554,12,1,Loyal / Champions
+C0470,4,429050,3.25,156,0,Potensial (Mulai Pasif)
+C0471,6,629300,3.0,53,0,Potensial (Mulai Pasif)
+C0472,3,462700,3.0,299,0,Potensial (Mulai Pasif)
+C0473,6,314400,2.6666666666666665,2,1,Loyal / Champions
+C0474,5,372375,3.0,175,0,Potensial (Mulai Pasif)
+C0475,1,200500,4.0,17,2,Berisiko Churn
+C0476,8,736725,2.875,8,1,Loyal / Champions
+C0477,1,70625,4.0,241,2,Berisiko Churn
+C0478,3,250425,2.6666666666666665,71,0,Potensial (Mulai Pasif)
+C0479,3,236100,3.6666666666666665,14,1,Loyal / Champions
+C0480,4,345425,2.75,33,0,Potensial (Mulai Pasif)
+C0481,5,383000,3.4,54,0,Potensial (Mulai Pasif)
+C0482,5,297800,3.0,118,0,Potensial (Mulai Pasif)
+C0483,3,189525,3.0,11,1,Loyal / Champions
+C0484,5,1037850,3.0,110,0,Potensial (Mulai Pasif)
+C0485,5,632325,2.2,29,1,Loyal / Champions
+C0487,2,140950,3.0,12,2,Berisiko Churn
+C0488,2,304650,2.5,41,2,Berisiko Churn
+C0489,4,344775,2.0,5,1,Loyal / Champions
+C0490,2,62300,3.0,115,2,Berisiko Churn
+C0491,3,275900,3.3333333333333335,15,1,Loyal / Champions
+C0492,7,782225,2.857142857142857,13,1,Loyal / Champions
+C0493,5,567225,3.4,11,1,Loyal / Champions
+C0494,6,972650,3.5,170,0,Potensial (Mulai Pasif)
+C0495,4,208050,2.0,57,0,Potensial (Mulai Pasif)
+C0496,4,288100,4.0,76,0,Potensial (Mulai Pasif)
+C0497,3,697875,2.0,45,0,Potensial (Mulai Pasif)
+C0498,4,568350,3.75,25,1,Loyal / Champions
+C0499,6,619425,3.1666666666666665,46,0,Potensial (Mulai Pasif)
+C0500,1,142575,5.0,131,2,Berisiko Churn
+C0501,6,648500,2.8333333333333335,19,1,Loyal / Champions
+C0502,3,367450,4.333333333333333,6,1,Loyal / Champions
+C0503,5,470625,3.2,129,0,Potensial (Mulai Pasif)
+C0504,8,1384025,3.125,41,1,Loyal / Champions
+C0505,3,279750,2.3333333333333335,16,1,Loyal / Champions
+C0506,4,335950,2.75,11,1,Loyal / Champions
+C0507,5,402100,2.6,9,1,Loyal / Champions
+C0508,5,271375,2.4,15,1,Loyal / Champions
+C0509,4,276250,3.25,82,0,Potensial (Mulai Pasif)
+C0510,8,946975,3.625,8,1,Loyal / Champions
+C0511,4,256150,3.0,38,0,Potensial (Mulai Pasif)
+C0512,5,547775,3.0,75,0,Potensial (Mulai Pasif)
+C0513,3,336450,1.6666666666666667,41,0,Potensial (Mulai Pasif)
+C0514,1,51800,2.0,136,2,Berisiko Churn
+C0515,6,781150,3.6666666666666665,22,1,Loyal / Champions
+C0516,2,212200,3.5,162,2,Berisiko Churn
+C0517,7,414300,2.2857142857142856,74,0,Potensial (Mulai Pasif)
+C0518,6,477075,3.1666666666666665,96,0,Potensial (Mulai Pasif)
+C0519,4,582400,3.25,63,0,Potensial (Mulai Pasif)
+C0520,2,208750,4.0,55,2,Berisiko Churn
+C0521,4,620250,3.75,75,0,Potensial (Mulai Pasif)
+C0522,5,587000,3.0,46,0,Potensial (Mulai Pasif)
+C0523,2,424900,2.5,47,0,Potensial (Mulai Pasif)
+C0524,5,429450,3.2,45,0,Potensial (Mulai Pasif)
+C0525,3,221775,3.3333333333333335,13,1,Loyal / Champions
+C0526,3,334050,3.0,130,0,Potensial (Mulai Pasif)
+C0527,5,335150,3.0,8,1,Loyal / Champions
+C0528,4,397775,3.75,131,0,Potensial (Mulai Pasif)
+C0529,4,206700,2.75,16,1,Loyal / Champions
+C0530,3,234975,3.6666666666666665,7,1,Loyal / Champions
+C0531,2,182450,3.0,13,2,Berisiko Churn
+C0532,3,819075,3.0,49,0,Potensial (Mulai Pasif)
+C0533,3,226650,2.0,162,2,Berisiko Churn
+C0534,6,1290150,3.6666666666666665,61,0,Potensial (Mulai Pasif)
+C0535,1,38825,4.0,322,2,Berisiko Churn
+C0536,2,124950,3.5,149,2,Berisiko Churn
+C0537,6,450475,3.3333333333333335,3,1,Loyal / Champions
+C0538,1,90650,3.0,250,2,Berisiko Churn
+C0539,2,428925,4.5,328,2,Berisiko Churn
+C0540,3,276225,3.6666666666666665,106,0,Potensial (Mulai Pasif)
+C0541,3,383325,3.0,67,0,Potensial (Mulai Pasif)
+C0542,2,57400,1.0,8,2,Berisiko Churn
+C0543,5,684100,3.0,45,0,Potensial (Mulai Pasif)
+C0544,3,253800,2.6666666666666665,52,0,Potensial (Mulai Pasif)
+C0545,8,574575,2.625,164,0,Potensial (Mulai Pasif)
+C0546,2,242550,3.5,268,2,Berisiko Churn
+C0548,2,65500,2.5,31,2,Berisiko Churn
+C0549,8,926650,2.5,2,1,Loyal / Champions
+C0550,1,92900,3.0,186,2,Berisiko Churn
+C0551,4,393150,3.75,140,0,Potensial (Mulai Pasif)
+C0552,6,873225,3.1666666666666665,22,1,Loyal / Champions
+C0553,3,324050,3.3333333333333335,87,0,Potensial (Mulai Pasif)
+C0554,5,878500,3.0,144,0,Potensial (Mulai Pasif)
+C0555,5,861975,3.2,34,1,Loyal / Champions
+C0556,2,536025,2.5,78,0,Potensial (Mulai Pasif)
+C0557,3,156075,2.0,65,2,Berisiko Churn
+C0558,5,867000,3.2,47,0,Potensial (Mulai Pasif)
+C0559,3,225950,2.6666666666666665,321,2,Berisiko Churn
+C0560,4,229325,2.5,24,1,Loyal / Champions
+C0561,6,771500,2.8333333333333335,36,1,Loyal / Champions
+C0562,6,555675,3.5,64,0,Potensial (Mulai Pasif)
+C0563,2,422050,3.0,295,2,Berisiko Churn
+C0564,7,852450,4.285714285714286,6,1,Loyal / Champions
+C0565,4,283025,3.0,17,1,Loyal / Champions
+C0566,3,377000,3.6666666666666665,60,0,Potensial (Mulai Pasif)
+C0567,3,310200,3.3333333333333335,2,1,Loyal / Champions
+C0568,5,399525,3.0,151,0,Potensial (Mulai Pasif)
+C0569,3,396975,4.0,37,0,Potensial (Mulai Pasif)
+C0570,2,150000,2.0,12,2,Berisiko Churn
+C0571,3,271900,2.6666666666666665,14,1,Loyal / Champions
+C0572,8,842750,3.25,80,0,Potensial (Mulai Pasif)
+C0573,4,527200,3.75,67,0,Potensial (Mulai Pasif)
+C0574,7,682950,3.5714285714285716,174,0,Potensial (Mulai Pasif)
+C0576,3,428500,4.0,25,1,Loyal / Champions
+C0577,3,389275,3.3333333333333335,30,0,Potensial (Mulai Pasif)
+C0578,4,298375,2.5,16,1,Loyal / Champions
+C0579,5,394000,3.2,35,0,Potensial (Mulai Pasif)
+C0580,5,827100,3.0,115,0,Potensial (Mulai Pasif)
+C0581,4,315550,3.0,18,1,Loyal / Champions
+C0582,2,612400,3.0,18,1,Loyal / Champions
+C0583,5,304400,3.2,22,1,Loyal / Champions
+C0584,2,179025,2.5,60,2,Berisiko Churn
+C0585,6,534525,2.5,5,1,Loyal / Champions
+C0586,2,307300,2.5,238,2,Berisiko Churn
+C0587,3,385575,3.3333333333333335,140,0,Potensial (Mulai Pasif)
+C0588,9,1187275,3.4444444444444446,55,0,Potensial (Mulai Pasif)
+C0589,3,497450,2.3333333333333335,49,0,Potensial (Mulai Pasif)
+C0590,3,197600,2.6666666666666665,37,2,Berisiko Churn
+C0591,5,792750,3.6,44,0,Potensial (Mulai Pasif)
+C0592,4,266575,2.5,15,1,Loyal / Champions
+C0593,5,592175,2.8,4,1,Loyal / Champions
+C0594,2,193300,3.0,95,2,Berisiko Churn
+C0595,3,563000,3.3333333333333335,63,0,Potensial (Mulai Pasif)
+C0596,3,456300,4.333333333333333,203,0,Potensial (Mulai Pasif)
+C0597,5,695300,3.6,70,0,Potensial (Mulai Pasif)
+C0598,1,87800,2.0,278,2,Berisiko Churn
+C0599,7,1437225,2.857142857142857,11,1,Loyal / Champions
+C0600,3,398850,3.0,169,0,Potensial (Mulai Pasif)
+C0601,1,99825,3.0,52,2,Berisiko Churn
+C0603,5,414675,2.8,134,0,Potensial (Mulai Pasif)
+C0604,3,143825,2.3333333333333335,126,2,Berisiko Churn
+C0605,6,1290650,3.0,6,1,Loyal / Champions
+C0606,4,562325,2.5,109,0,Potensial (Mulai Pasif)
+C0607,1,74700,4.0,292,2,Berisiko Churn
+C0608,3,543825,3.3333333333333335,167,0,Potensial (Mulai Pasif)
+C0609,5,596900,2.4,158,0,Potensial (Mulai Pasif)
+C0610,3,825500,3.0,85,0,Potensial (Mulai Pasif)
+C0611,4,552150,2.75,86,0,Potensial (Mulai Pasif)
+C0612,8,778175,2.875,13,1,Loyal / Champions
+C0613,4,382475,2.75,26,1,Loyal / Champions
+C0614,3,231025,2.6666666666666665,58,2,Berisiko Churn
+C0615,4,162325,2.5,118,2,Berisiko Churn
+C0616,6,653000,2.1666666666666665,98,0,Potensial (Mulai Pasif)
+C0617,1,49750,3.0,123,2,Berisiko Churn
+C0618,1,74900,3.0,38,2,Berisiko Churn
+C0619,6,433800,2.6666666666666665,27,1,Loyal / Champions
+C0620,4,363900,3.0,20,1,Loyal / Champions
+C0621,1,162750,4.0,160,2,Berisiko Churn
+C0622,5,773025,2.8,6,1,Loyal / Champions
+C0623,5,456850,2.6,5,1,Loyal / Champions
+C0624,7,633250,2.7142857142857144,20,1,Loyal / Champions
+C0625,4,262575,2.75,30,0,Potensial (Mulai Pasif)
+C0626,4,443225,3.5,89,0,Potensial (Mulai Pasif)
+C0627,7,1231850,2.857142857142857,7,1,Loyal / Champions
+C0628,5,1345600,3.8,38,0,Potensial (Mulai Pasif)
+C0629,2,163900,3.0,282,2,Berisiko Churn
+C0630,7,926975,2.5714285714285716,130,0,Potensial (Mulai Pasif)
+C0631,2,129225,3.0,25,2,Berisiko Churn
+C0632,4,547375,3.75,18,1,Loyal / Champions
+C0633,2,596375,2.5,183,0,Potensial (Mulai Pasif)
+C0634,6,929525,3.8333333333333335,51,0,Potensial (Mulai Pasif)
+C0635,4,362850,2.5,44,0,Potensial (Mulai Pasif)
+C0636,4,425350,3.25,58,0,Potensial (Mulai Pasif)
+C0637,3,683950,2.6666666666666665,123,0,Potensial (Mulai Pasif)
+C0638,2,229450,4.0,38,2,Berisiko Churn
+C0639,1,127200,3.0,75,2,Berisiko Churn
+C0640,3,234700,2.6666666666666665,69,2,Berisiko Churn
+C0641,2,228325,2.5,259,2,Berisiko Churn
+C0642,4,779150,2.75,8,1,Loyal / Champions
+C0643,2,172475,2.0,259,2,Berisiko Churn
+C0644,4,870400,3.5,181,0,Potensial (Mulai Pasif)
+C0645,2,313025,4.5,162,2,Berisiko Churn
+C0646,2,91750,2.0,297,2,Berisiko Churn
+C0647,3,342925,3.0,73,0,Potensial (Mulai Pasif)
+C0648,1,10975,2.0,229,2,Berisiko Churn
+C0649,2,195450,3.0,55,2,Berisiko Churn
+C0650,3,156375,3.0,83,2,Berisiko Churn
+C0651,4,470750,3.0,16,1,Loyal / Champions
+C0652,4,275150,3.75,38,0,Potensial (Mulai Pasif)
+C0653,3,300800,2.3333333333333335,13,1,Loyal / Champions
+C0654,5,659925,3.4,50,0,Potensial (Mulai Pasif)
+C0655,14,1631175,3.357142857142857,6,1,Loyal / Champions
+C0656,5,478725,3.8,2,1,Loyal / Champions
+C0657,7,699575,2.857142857142857,50,0,Potensial (Mulai Pasif)
+C0658,3,394125,3.3333333333333335,49,0,Potensial (Mulai Pasif)
+C0659,5,430300,2.0,84,0,Potensial (Mulai Pasif)
+C0660,1,115350,4.0,8,2,Berisiko Churn
+C0661,4,713050,3.0,16,1,Loyal / Champions
+C0662,2,232625,4.0,84,2,Berisiko Churn
+C0663,7,419300,3.142857142857143,26,1,Loyal / Champions
+C0664,5,572625,2.4,33,1,Loyal / Champions
+C0665,3,160375,1.6666666666666667,99,2,Berisiko Churn
+C0666,4,211100,2.5,12,1,Loyal / Champions
+C0667,8,702625,3.25,67,0,Potensial (Mulai Pasif)
+C0668,4,295100,3.75,12,1,Loyal / Champions
+C0669,6,690625,3.3333333333333335,66,0,Potensial (Mulai Pasif)
+C0670,3,407575,3.3333333333333335,14,1,Loyal / Champions
+C0672,5,556400,2.8,16,1,Loyal / Champions
+C0673,5,420175,2.6,38,0,Potensial (Mulai Pasif)
+C0674,3,200100,3.0,109,2,Berisiko Churn
+C0675,4,506375,3.25,24,1,Loyal / Champions
+C0676,1,112000,5.0,287,2,Berisiko Churn
+C0677,6,1004850,3.3333333333333335,22,1,Loyal / Champions
+C0678,4,280250,2.75,51,0,Potensial (Mulai Pasif)
+C0679,4,295200,3.5,134,0,Potensial (Mulai Pasif)
+C0680,2,47325,2.5,12,2,Berisiko Churn
+C0681,4,524550,3.25,72,0,Potensial (Mulai Pasif)
+C0682,3,175275,2.6666666666666665,137,2,Berisiko Churn
+C0683,3,292625,3.3333333333333335,85,0,Potensial (Mulai Pasif)
+C0684,6,579850,2.8333333333333335,17,1,Loyal / Champions
+C0685,8,715000,2.75,2,1,Loyal / Champions
+C0686,5,427325,2.2,40,0,Potensial (Mulai Pasif)
+C0687,4,738750,3.5,44,0,Potensial (Mulai Pasif)
+C0688,4,838700,3.25,88,0,Potensial (Mulai Pasif)
+C0689,3,290875,3.0,6,1,Loyal / Champions
+C0690,6,801125,3.1666666666666665,116,0,Potensial (Mulai Pasif)
+C0691,6,862375,2.6666666666666665,124,0,Potensial (Mulai Pasif)
+C0692,5,655700,3.6,96,0,Potensial (Mulai Pasif)
+C0694,2,169475,2.5,91,2,Berisiko Churn
+C0695,4,722700,2.75,10,1,Loyal / Champions
+C0696,6,435975,2.5,22,1,Loyal / Champions
+C0697,4,581850,2.25,22,1,Loyal / Champions
+C0698,1,90500,2.0,218,2,Berisiko Churn
+C0699,6,708425,3.3333333333333335,139,0,Potensial (Mulai Pasif)
+C0700,2,202025,3.5,239,2,Berisiko Churn
+C0701,4,315650,3.0,76,0,Potensial (Mulai Pasif)
+C0702,2,63950,2.0,16,2,Berisiko Churn
+C0703,4,455875,3.0,66,0,Potensial (Mulai Pasif)
+C0704,3,403525,3.3333333333333335,85,0,Potensial (Mulai Pasif)
+C0705,5,636700,3.0,13,1,Loyal / Champions
+C0706,1,139500,1.0,98,2,Berisiko Churn
+C0707,3,248125,3.3333333333333335,62,0,Potensial (Mulai Pasif)
+C0708,2,220975,3.0,60,2,Berisiko Churn
+C0709,6,570675,3.1666666666666665,49,0,Potensial (Mulai Pasif)
+C0710,6,857575,3.8333333333333335,8,1,Loyal / Champions
+C0711,6,859950,3.5,164,0,Potensial (Mulai Pasif)
+C0712,5,693075,4.2,88,0,Potensial (Mulai Pasif)
+C0713,3,543975,2.6666666666666665,87,0,Potensial (Mulai Pasif)
+C0714,3,321375,3.6666666666666665,46,0,Potensial (Mulai Pasif)
+C0715,3,210775,3.0,149,2,Berisiko Churn
+C0716,2,68800,2.0,37,2,Berisiko Churn
+C0717,3,227700,2.6666666666666665,125,2,Berisiko Churn
+C0718,6,857150,2.5,47,0,Potensial (Mulai Pasif)
+C0719,5,695250,3.8,15,1,Loyal / Champions
+C0720,8,804825,2.625,30,1,Loyal / Champions
+C0721,2,324400,3.5,61,2,Berisiko Churn
+C0722,1,174700,3.0,220,2,Berisiko Churn
+C0723,5,358925,2.6,51,0,Potensial (Mulai Pasif)
+C0724,4,299900,3.0,116,0,Potensial (Mulai Pasif)
+C0725,6,702775,3.3333333333333335,32,1,Loyal / Champions
+C0726,5,486700,3.2,20,1,Loyal / Champions
+C0727,3,458225,3.6666666666666665,217,0,Potensial (Mulai Pasif)
+C0728,1,68550,4.0,91,2,Berisiko Churn
+C0729,3,270475,2.0,41,0,Potensial (Mulai Pasif)
+C0730,5,477025,3.2,21,1,Loyal / Champions
+C0731,3,105700,2.6666666666666665,130,2,Berisiko Churn
+C0732,8,834600,3.25,11,1,Loyal / Champions
+C0733,2,133875,1.5,180,2,Berisiko Churn
+C0734,8,691500,3.125,20,1,Loyal / Champions
+C0735,3,280525,4.0,132,0,Potensial (Mulai Pasif)
+C0736,3,426725,3.6666666666666665,73,0,Potensial (Mulai Pasif)
+C0737,1,51300,3.0,230,2,Berisiko Churn
+C0738,2,109500,1.0,42,2,Berisiko Churn
+C0739,4,282900,2.5,16,1,Loyal / Champions
+C0740,3,237225,3.0,48,2,Berisiko Churn
+C0741,5,372925,3.2,9,1,Loyal / Champions
+C0742,6,720000,3.1666666666666665,78,0,Potensial (Mulai Pasif)
+C0743,4,254175,3.0,30,0,Potensial (Mulai Pasif)
+C0744,6,391725,2.8333333333333335,65,0,Potensial (Mulai Pasif)
+C0745,6,631850,3.0,216,0,Potensial (Mulai Pasif)
+C0746,4,425925,3.25,25,1,Loyal / Champions
+C0747,3,287900,3.0,62,0,Potensial (Mulai Pasif)
+C0748,9,1328525,3.111111111111111,29,1,Loyal / Champions
+C0749,2,144200,3.0,167,2,Berisiko Churn
+C0750,4,440950,3.25,18,1,Loyal / Champions
+C0751,4,577800,2.5,163,0,Potensial (Mulai Pasif)
+C0752,1,336700,3.0,166,2,Berisiko Churn
+C0753,3,336700,4.0,117,0,Potensial (Mulai Pasif)
+C0754,9,1261375,3.3333333333333335,2,1,Loyal / Champions
+C0755,6,787350,3.5,55,0,Potensial (Mulai Pasif)
+C0756,3,294150,3.0,22,1,Loyal / Champions
+C0757,5,368525,2.6,99,0,Potensial (Mulai Pasif)
+C0758,3,200675,2.3333333333333335,71,2,Berisiko Churn
+C0759,6,629200,3.1666666666666665,70,0,Potensial (Mulai Pasif)
+C0760,3,374175,3.3333333333333335,242,0,Potensial (Mulai Pasif)
+C0761,3,399950,3.0,122,0,Potensial (Mulai Pasif)
+C0762,5,849900,3.6,42,0,Potensial (Mulai Pasif)
+C0763,3,367650,3.3333333333333335,189,0,Potensial (Mulai Pasif)
+C0764,3,189525,3.3333333333333335,156,2,Berisiko Churn
+C0765,6,484825,3.3333333333333335,41,0,Potensial (Mulai Pasif)
+C0766,6,609025,3.1666666666666665,66,0,Potensial (Mulai Pasif)
+C0767,7,810000,3.142857142857143,81,0,Potensial (Mulai Pasif)
+C0768,2,122250,1.5,195,2,Berisiko Churn
+C0769,4,563775,4.0,138,0,Potensial (Mulai Pasif)
+C0770,7,1024975,3.142857142857143,46,0,Potensial (Mulai Pasif)
+C0771,2,230375,3.5,204,2,Berisiko Churn
+C0773,3,210600,3.0,28,2,Berisiko Churn
+C0774,3,355600,4.333333333333333,261,0,Potensial (Mulai Pasif)
+C0775,5,618775,3.2,61,0,Potensial (Mulai Pasif)
+C0776,1,398500,4.0,221,2,Berisiko Churn
+C0777,4,237675,2.75,92,0,Potensial (Mulai Pasif)
+C0778,5,588775,3.8,9,1,Loyal / Champions
+C0779,3,511500,2.3333333333333335,34,0,Potensial (Mulai Pasif)
+C0780,2,483650,3.0,72,0,Potensial (Mulai Pasif)
+C0781,4,557550,3.0,128,0,Potensial (Mulai Pasif)
+C0782,2,177500,3.0,5,1,Loyal / Champions
+C0783,5,295850,2.6,46,0,Potensial (Mulai Pasif)
+C0784,1,250650,5.0,237,2,Berisiko Churn
+C0785,4,156750,2.0,65,2,Berisiko Churn
+C0786,5,885500,3.0,7,1,Loyal / Champions
+C0787,3,381925,4.333333333333333,54,0,Potensial (Mulai Pasif)
+C0788,4,454350,3.5,98,0,Potensial (Mulai Pasif)
+C0789,3,271500,2.3333333333333335,115,0,Potensial (Mulai Pasif)
+C0790,5,771525,3.8,10,1,Loyal / Champions
+C0791,1,42400,2.0,192,2,Berisiko Churn
+C0792,4,422550,3.25,147,0,Potensial (Mulai Pasif)
+C0793,9,736950,3.3333333333333335,88,0,Potensial (Mulai Pasif)
+C0794,1,96450,3.0,207,2,Berisiko Churn
+C0795,3,515000,2.3333333333333335,9,1,Loyal / Champions
+C0796,5,427400,3.0,144,0,Potensial (Mulai Pasif)
+C0797,4,662000,3.25,64,0,Potensial (Mulai Pasif)
+C0798,1,77300,2.0,37,2,Berisiko Churn
+C0800,4,733925,3.5,68,0,Potensial (Mulai Pasif)
+C0801,3,684650,3.3333333333333335,22,1,Loyal / Champions
+C0802,3,567850,4.333333333333333,34,0,Potensial (Mulai Pasif)
+C0803,5,957400,3.4,48,0,Potensial (Mulai Pasif)
+C0805,6,788850,3.3333333333333335,209,0,Potensial (Mulai Pasif)
+C0806,6,687525,3.3333333333333335,73,0,Potensial (Mulai Pasif)
+C0807,1,120475,3.0,301,2,Berisiko Churn
+C0808,3,479150,4.0,92,0,Potensial (Mulai Pasif)
+C0809,3,602700,2.6666666666666665,12,1,Loyal / Champions
+C0810,3,180275,3.3333333333333335,148,2,Berisiko Churn
+C0811,4,297975,3.25,153,0,Potensial (Mulai Pasif)
+C0812,6,401300,2.8333333333333335,32,1,Loyal / Champions
+C0813,3,381700,3.3333333333333335,141,0,Potensial (Mulai Pasif)
+C0814,4,292075,3.0,105,0,Potensial (Mulai Pasif)
+C0815,3,150100,2.6666666666666665,10,1,Loyal / Champions
+C0816,8,950025,3.5,89,0,Potensial (Mulai Pasif)
+C0817,4,495200,3.25,14,1,Loyal / Champions
+C0818,3,229100,2.6666666666666665,24,1,Loyal / Champions
+C0819,4,472950,3.25,113,0,Potensial (Mulai Pasif)
+C0820,2,227450,2.0,182,2,Berisiko Churn
+C0821,3,407375,2.3333333333333335,114,0,Potensial (Mulai Pasif)
+C0822,5,277625,2.6,31,1,Loyal / Champions
+C0823,4,559700,3.5,132,0,Potensial (Mulai Pasif)
+C0824,6,805825,3.3333333333333335,22,1,Loyal / Champions
+C0825,9,883600,2.4444444444444446,91,0,Potensial (Mulai Pasif)
+C0826,1,81975,3.0,117,2,Berisiko Churn
+C0827,2,335325,3.0,41,2,Berisiko Churn
+C0828,3,274300,2.3333333333333335,52,0,Potensial (Mulai Pasif)
+C0829,4,331425,3.0,48,0,Potensial (Mulai Pasif)
+C0830,5,719125,2.8,1,1,Loyal / Champions
+C0831,2,212875,3.0,27,2,Berisiko Churn
+C0832,5,821900,3.2,46,0,Potensial (Mulai Pasif)
+C0833,7,409750,2.4285714285714284,13,1,Loyal / Champions
+C0834,4,345300,2.75,8,1,Loyal / Champions
+C0835,3,209400,3.0,160,2,Berisiko Churn
+C0836,5,473425,2.6,7,1,Loyal / Champions
+C0837,4,463975,3.5,134,0,Potensial (Mulai Pasif)
+C0838,3,252425,2.3333333333333335,50,0,Potensial (Mulai Pasif)
+C0839,6,897150,3.5,6,1,Loyal / Champions
+C0840,6,928650,2.8333333333333335,156,0,Potensial (Mulai Pasif)
+C0841,5,679325,3.4,141,0,Potensial (Mulai Pasif)
+C0842,6,432925,2.8333333333333335,164,0,Potensial (Mulai Pasif)
+C0843,4,645350,3.75,35,0,Potensial (Mulai Pasif)
+C0844,1,106125,3.0,84,2,Berisiko Churn
+C0845,1,27400,2.0,354,2,Berisiko Churn
+C0846,9,1819350,3.3333333333333335,44,1,Loyal / Champions
+C0847,2,204925,2.5,29,2,Berisiko Churn
+C0848,4,533875,2.0,26,1,Loyal / Champions
+C0849,4,763950,4.0,33,0,Potensial (Mulai Pasif)
+C0850,4,538775,3.25,75,0,Potensial (Mulai Pasif)
+C0851,1,70600,3.0,119,2,Berisiko Churn
+C0852,3,971700,4.666666666666667,55,0,Potensial (Mulai Pasif)
+C0853,2,214425,2.5,207,2,Berisiko Churn
+C0854,5,369375,3.4,35,0,Potensial (Mulai Pasif)
+C0856,3,487375,2.6666666666666665,135,0,Potensial (Mulai Pasif)
+C0857,3,80625,2.0,222,2,Berisiko Churn
+C0858,4,570925,3.25,155,0,Potensial (Mulai Pasif)
+C0859,2,366900,3.0,39,2,Berisiko Churn
+C0860,3,732900,3.6666666666666665,48,0,Potensial (Mulai Pasif)
+C0861,4,225900,2.25,118,0,Potensial (Mulai Pasif)
+C0862,2,519825,4.0,72,0,Potensial (Mulai Pasif)
+C0863,2,78475,3.0,100,2,Berisiko Churn
+C0864,6,1054250,3.3333333333333335,38,1,Loyal / Champions
+C0865,3,338125,2.3333333333333335,43,0,Potensial (Mulai Pasif)
+C0866,5,484825,3.2,64,0,Potensial (Mulai Pasif)
+C0867,10,1462600,3.1,151,0,Potensial (Mulai Pasif)
+C0868,2,145375,2.5,246,2,Berisiko Churn
+C0869,4,567550,3.75,185,0,Potensial (Mulai Pasif)
+C0870,4,500625,4.0,23,1,Loyal / Champions
+C0871,7,825775,3.7142857142857144,11,1,Loyal / Champions
+C0872,9,1224075,3.4444444444444446,47,1,Loyal / Champions
+C0873,4,233775,2.5,78,0,Potensial (Mulai Pasif)
+C0874,6,615275,3.1666666666666665,44,0,Potensial (Mulai Pasif)
+C0875,6,663750,2.8333333333333335,47,0,Potensial (Mulai Pasif)
+C0876,1,129900,3.0,182,2,Berisiko Churn
+C0877,5,319900,2.4,80,0,Potensial (Mulai Pasif)
+C0878,9,1503425,3.6666666666666665,1,1,Loyal / Champions
+C0879,4,386475,3.0,105,0,Potensial (Mulai Pasif)
+C0880,6,542125,3.0,18,1,Loyal / Champions
+C0881,4,548175,3.25,64,0,Potensial (Mulai Pasif)
+C0882,3,415725,2.6666666666666665,87,0,Potensial (Mulai Pasif)
+C0883,8,538950,2.875,27,1,Loyal / Champions
+C0884,2,334175,3.5,80,2,Berisiko Churn
+C0885,1,78800,4.0,229,2,Berisiko Churn
+C0886,2,291300,3.0,147,2,Berisiko Churn
+C0887,6,504200,3.8333333333333335,4,1,Loyal / Champions
+C0888,6,630675,2.5,26,1,Loyal / Champions
+C0889,5,1148500,2.6,47,0,Potensial (Mulai Pasif)
+C0890,4,272250,2.75,24,1,Loyal / Champions
+C0891,1,50125,2.0,61,2,Berisiko Churn
+C0892,6,724000,2.8333333333333335,54,0,Potensial (Mulai Pasif)
+C0893,4,385675,2.5,8,1,Loyal / Champions
+C0894,6,817075,3.6666666666666665,4,1,Loyal / Champions
+C0895,5,304075,2.8,28,1,Loyal / Champions
+C0896,4,269875,2.5,28,1,Loyal / Champions
+C0897,6,559175,3.3333333333333335,182,0,Potensial (Mulai Pasif)
+C0898,6,500600,3.0,56,0,Potensial (Mulai Pasif)
+C0899,7,884500,3.0,4,1,Loyal / Champions
+C0900,7,561250,2.2857142857142856,14,1,Loyal / Champions
+C0901,2,360925,5.0,204,2,Berisiko Churn
+C0902,5,290925,3.2,10,1,Loyal / Champions
+C0903,2,127525,3.0,264,2,Berisiko Churn
+C0904,3,300675,3.0,121,0,Potensial (Mulai Pasif)
+C0905,1,115775,4.0,363,2,Berisiko Churn
+C0906,6,523600,2.1666666666666665,97,0,Potensial (Mulai Pasif)
+C0907,5,465825,3.4,88,0,Potensial (Mulai Pasif)
+C0908,1,36100,2.0,79,2,Berisiko Churn
+C0909,4,251500,2.5,8,1,Loyal / Champions
+C0910,1,69900,2.0,342,2,Berisiko Churn
+C0911,5,533600,2.8,12,1,Loyal / Champions
+C0912,7,872725,2.7142857142857144,53,0,Potensial (Mulai Pasif)
+C0913,2,270575,4.5,103,2,Berisiko Churn
+C0914,5,378300,2.4,110,0,Potensial (Mulai Pasif)
+C0915,5,443950,2.6,59,0,Potensial (Mulai Pasif)
+C0916,4,145950,2.5,130,2,Berisiko Churn
+C0917,5,297500,2.0,25,1,Loyal / Champions
+C0918,5,615475,3.0,76,0,Potensial (Mulai Pasif)
+C0919,7,844150,3.2857142857142856,23,1,Loyal / Champions
+C0920,6,612825,3.5,46,0,Potensial (Mulai Pasif)
+C0921,1,75675,3.0,82,2,Berisiko Churn
+C0922,5,386475,2.8,172,0,Potensial (Mulai Pasif)
+C0923,3,384325,3.3333333333333335,24,1,Loyal / Champions
+C0924,2,116725,3.5,85,2,Berisiko Churn
+C0925,5,615975,3.2,31,1,Loyal / Champions
+C0926,1,82400,3.0,309,2,Berisiko Churn
+C0927,2,150450,3.5,309,2,Berisiko Churn
+C0928,8,796900,2.75,23,1,Loyal / Champions
+C0929,2,187000,3.0,171,2,Berisiko Churn
+C0930,6,470800,2.6666666666666665,34,1,Loyal / Champions
+C0931,2,72425,3.5,82,2,Berisiko Churn
+C0932,4,695275,3.0,3,1,Loyal / Champions
+C0933,3,918300,3.6666666666666665,248,0,Potensial (Mulai Pasif)
+C0934,7,635875,3.2857142857142856,3,1,Loyal / Champions
+C0935,4,696750,2.25,22,1,Loyal / Champions
+C0936,2,367475,3.5,32,2,Berisiko Churn
+C0937,4,323000,3.0,28,1,Loyal / Champions
+C0938,5,287275,2.8,36,0,Potensial (Mulai Pasif)
+C0939,4,761450,3.25,155,0,Potensial (Mulai Pasif)
+C0940,3,94575,2.0,4,1,Loyal / Champions
+C0941,2,272150,4.0,294,2,Berisiko Churn
+C0942,2,114000,1.5,253,2,Berisiko Churn
+C0943,4,700150,2.5,94,0,Potensial (Mulai Pasif)
+C0944,3,529850,2.6666666666666665,152,0,Potensial (Mulai Pasif)
+C0945,5,501125,3.0,27,1,Loyal / Champions
+C0946,3,162550,1.3333333333333333,74,2,Berisiko Churn
+C0947,5,596775,2.8,26,1,Loyal / Champions
+C0948,5,364500,2.8,6,1,Loyal / Champions
+C0949,5,932125,4.0,79,0,Potensial (Mulai Pasif)
+C0950,1,107500,5.0,235,2,Berisiko Churn
+C0951,4,328025,3.0,98,0,Potensial (Mulai Pasif)
+C0952,9,1586950,3.5555555555555554,9,1,Loyal / Champions
+C0953,2,239475,3.5,48,2,Berisiko Churn
+C0954,3,278575,2.6666666666666665,142,0,Potensial (Mulai Pasif)
+C0955,3,888000,4.333333333333333,2,1,Loyal / Champions
+C0956,5,411700,3.2,31,1,Loyal / Champions
+C0957,7,978550,2.857142857142857,91,0,Potensial (Mulai Pasif)
+C0958,7,545425,2.142857142857143,13,1,Loyal / Champions
+C0959,1,172200,5.0,294,2,Berisiko Churn
+C0960,6,583700,3.1666666666666665,82,0,Potensial (Mulai Pasif)
+C0961,3,328775,2.6666666666666665,56,0,Potensial (Mulai Pasif)
+C0962,4,355400,2.5,11,1,Loyal / Champions
+C0963,4,324700,2.75,35,0,Potensial (Mulai Pasif)
+C0964,1,45100,2.0,204,2,Berisiko Churn
+C0965,5,969000,4.2,99,0,Potensial (Mulai Pasif)
+C0966,3,325825,3.0,133,0,Potensial (Mulai Pasif)
+C0967,5,1030675,2.6,207,0,Potensial (Mulai Pasif)
+C0968,4,410825,2.75,36,0,Potensial (Mulai Pasif)
+C0969,4,421050,2.75,9,1,Loyal / Champions
+C0970,7,728450,3.142857142857143,7,1,Loyal / Champions
+C0971,6,610775,3.6666666666666665,34,1,Loyal / Champions
+C0972,4,453700,3.0,147,0,Potensial (Mulai Pasif)
+C0973,4,451650,3.5,203,0,Potensial (Mulai Pasif)
+C0974,5,987725,3.0,54,0,Potensial (Mulai Pasif)
+C0975,5,616575,3.2,17,1,Loyal / Champions
+C0976,3,461300,3.3333333333333335,27,0,Potensial (Mulai Pasif)
+C0977,3,442675,3.0,108,0,Potensial (Mulai Pasif)
+C0978,3,224450,3.0,28,2,Berisiko Churn
+C0979,5,539100,3.4,55,0,Potensial (Mulai Pasif)
+C0980,4,230425,2.5,43,0,Potensial (Mulai Pasif)
+C0981,2,126450,3.5,225,2,Berisiko Churn
+C0982,3,201125,2.3333333333333335,111,2,Berisiko Churn
+C0983,2,234325,3.0,47,2,Berisiko Churn
+C0984,6,907175,3.6666666666666665,70,0,Potensial (Mulai Pasif)
+C0985,6,1328350,3.0,7,1,Loyal / Champions
+C0986,7,653375,3.2857142857142856,30,1,Loyal / Champions
+C0987,3,204650,2.3333333333333335,51,2,Berisiko Churn
+C0988,3,495925,2.6666666666666665,105,0,Potensial (Mulai Pasif)
+C0989,7,1133000,3.4285714285714284,27,1,Loyal / Champions
+C0990,8,965150,2.75,20,1,Loyal / Champions
+C0991,6,486125,2.3333333333333335,17,1,Loyal / Champions
+C0992,2,321225,3.5,62,2,Berisiko Churn
+C0993,2,358900,3.5,24,2,Berisiko Churn
+C0994,8,813450,3.125,82,0,Potensial (Mulai Pasif)
+C0995,4,278325,3.0,142,0,Potensial (Mulai Pasif)
+C0996,2,246500,2.0,204,2,Berisiko Churn
+C0998,1,16650,1.0,262,2,Berisiko Churn
+C0999,3,355075,3.3333333333333335,238,0,Potensial (Mulai Pasif)
+C1000,4,762650,2.0,69,0,Potensial (Mulai Pasif)
+C1001,1,55875,2.0,307,2,Berisiko Churn
+C1002,3,305525,3.6666666666666665,49,0,Potensial (Mulai Pasif)
+C1003,5,540150,2.2,148,0,Potensial (Mulai Pasif)
+C1004,3,715500,3.3333333333333335,70,0,Potensial (Mulai Pasif)
+C1005,6,507925,3.1666666666666665,5,1,Loyal / Champions
+C1006,4,415900,3.5,22,1,Loyal / Champions
+C1007,4,570450,4.25,17,1,Loyal / Champions
+C1008,4,710150,3.5,23,1,Loyal / Champions
+C1009,5,855900,2.4,18,1,Loyal / Champions
+C1010,4,122575,2.5,24,2,Berisiko Churn
+C1011,4,317600,2.25,26,1,Loyal / Champions
+C1012,3,223000,3.6666666666666665,83,2,Berisiko Churn
+C1013,5,621450,2.8,30,1,Loyal / Champions
+C1014,4,490500,3.25,42,0,Potensial (Mulai Pasif)
+C1015,3,296525,3.3333333333333335,122,0,Potensial (Mulai Pasif)
+C1016,4,473600,3.0,67,0,Potensial (Mulai Pasif)
+C1017,3,240675,2.0,2,1,Loyal / Champions
+C1018,3,178150,2.3333333333333335,89,2,Berisiko Churn
+C1019,4,453275,3.75,285,0,Potensial (Mulai Pasif)
+C1020,1,82500,2.0,31,2,Berisiko Churn
+C1021,1,198100,4.0,145,2,Berisiko Churn
+C1022,7,524050,3.2857142857142856,25,1,Loyal / Champions
+C1023,2,205475,3.0,84,2,Berisiko Churn
+C1024,5,235675,2.4,35,0,Potensial (Mulai Pasif)
+C1025,2,89650,2.5,133,2,Berisiko Churn
+C1026,2,415325,4.5,37,0,Potensial (Mulai Pasif)
+C1027,4,440600,2.25,10,1,Loyal / Champions
+C1028,3,358025,3.6666666666666665,186,0,Potensial (Mulai Pasif)
+C1029,1,119625,4.0,120,2,Berisiko Churn
+C1030,6,462100,2.3333333333333335,13,1,Loyal / Champions
+C1031,6,642975,2.6666666666666665,43,0,Potensial (Mulai Pasif)
+C1032,4,314125,2.5,85,0,Potensial (Mulai Pasif)
+C1033,2,51650,2.0,21,2,Berisiko Churn
+C1034,6,1001225,3.5,7,1,Loyal / Champions
+C1035,5,246125,2.4,28,1,Loyal / Champions
+C1036,5,460800,3.0,74,0,Potensial (Mulai Pasif)
+C1037,3,250475,2.6666666666666665,57,0,Potensial (Mulai Pasif)
+C1038,6,442325,3.0,10,1,Loyal / Champions
+C1039,5,458450,3.4,48,0,Potensial (Mulai Pasif)
+C1040,2,73750,3.0,190,2,Berisiko Churn
+C1041,5,717550,4.2,97,0,Potensial (Mulai Pasif)
+C1042,6,1057825,3.1666666666666665,73,0,Potensial (Mulai Pasif)
+C1043,6,958450,3.5,118,0,Potensial (Mulai Pasif)
+C1044,6,518700,2.6666666666666665,62,0,Potensial (Mulai Pasif)
+C1045,5,491075,2.6,56,0,Potensial (Mulai Pasif)
+C1046,6,661775,2.8333333333333335,58,0,Potensial (Mulai Pasif)
+C1047,1,138000,4.0,198,2,Berisiko Churn
+C1048,5,476350,3.2,26,1,Loyal / Champions
+C1049,5,357875,2.8,48,0,Potensial (Mulai Pasif)
+C1050,3,549450,3.6666666666666665,87,0,Potensial (Mulai Pasif)
+C1051,4,338400,3.25,16,1,Loyal / Champions
+C1052,3,286550,2.3333333333333335,10,1,Loyal / Champions
+C1053,7,409800,3.0,15,1,Loyal / Champions
+C1054,5,419375,3.0,58,0,Potensial (Mulai Pasif)
+C1055,4,414900,2.25,18,1,Loyal / Champions
+C1056,4,293950,2.75,96,0,Potensial (Mulai Pasif)
+C1057,5,686850,3.4,48,0,Potensial (Mulai Pasif)
+C1058,5,913550,3.4,19,1,Loyal / Champions
+C1059,5,833375,3.2,183,0,Potensial (Mulai Pasif)
+C1060,3,127475,3.0,156,2,Berisiko Churn
+C1061,1,28200,2.0,340,2,Berisiko Churn
+C1062,3,649550,2.6666666666666665,117,0,Potensial (Mulai Pasif)
+C1063,5,507800,2.6,73,0,Potensial (Mulai Pasif)
+C1064,2,123000,3.0,72,2,Berisiko Churn
+C1065,4,398550,2.5,78,0,Potensial (Mulai Pasif)
+C1066,3,308850,3.0,64,0,Potensial (Mulai Pasif)
+C1067,8,1024300,3.125,15,1,Loyal / Champions
+C1068,7,767400,2.857142857142857,41,1,Loyal / Champions
+C1069,4,475200,3.0,20,1,Loyal / Champions
+C1070,2,245250,3.5,72,2,Berisiko Churn
+C1071,3,210250,3.0,49,2,Berisiko Churn
+C1072,4,614950,3.5,110,0,Potensial (Mulai Pasif)
+C1073,6,439375,2.8333333333333335,53,0,Potensial (Mulai Pasif)
+C1074,4,697525,2.75,200,0,Potensial (Mulai Pasif)
+C1075,6,530000,2.5,20,1,Loyal / Champions
+C1076,5,416300,3.2,70,0,Potensial (Mulai Pasif)
+C1077,10,2260450,3.8,23,1,Loyal / Champions
+C1078,4,381800,3.0,65,0,Potensial (Mulai Pasif)
+C1079,5,540725,3.2,11,1,Loyal / Champions
+C1080,3,855825,5.0,137,0,Potensial (Mulai Pasif)
+C1081,2,312650,2.0,305,2,Berisiko Churn
+C1082,2,98775,3.0,66,2,Berisiko Churn
+C1083,8,810700,3.0,131,0,Potensial (Mulai Pasif)
+C1084,7,493275,2.5714285714285716,32,1,Loyal / Champions
+C1085,7,740725,3.5714285714285716,94,0,Potensial (Mulai Pasif)
+C1086,5,328300,2.4,102,0,Potensial (Mulai Pasif)
+C1087,10,1281300,3.0,19,1,Loyal / Champions
+C1088,2,224000,3.0,30,2,Berisiko Churn
+C1089,5,782175,3.2,64,0,Potensial (Mulai Pasif)
+C1090,3,317450,2.3333333333333335,125,0,Potensial (Mulai Pasif)
+C1091,1,105950,4.0,164,2,Berisiko Churn
+C1092,4,353650,3.5,40,0,Potensial (Mulai Pasif)
+C1093,3,427700,4.666666666666667,84,0,Potensial (Mulai Pasif)
+C1094,2,210300,3.5,3,1,Loyal / Champions
+C1095,2,145875,3.0,30,2,Berisiko Churn
+C1096,1,148350,3.0,181,2,Berisiko Churn
+C1097,2,72950,2.5,68,2,Berisiko Churn
+C1098,3,303625,3.3333333333333335,108,0,Potensial (Mulai Pasif)
+C1099,6,348700,3.0,22,1,Loyal / Champions
+C1100,3,379625,3.0,128,0,Potensial (Mulai Pasif)
+C1101,4,288700,2.75,67,0,Potensial (Mulai Pasif)
+C1102,3,187550,2.6666666666666665,47,2,Berisiko Churn
+C1103,4,475125,2.75,38,0,Potensial (Mulai Pasif)
+C1105,2,497125,3.0,154,0,Potensial (Mulai Pasif)
+C1106,6,1283775,3.0,3,1,Loyal / Champions
+C1107,1,120800,3.0,60,2,Berisiko Churn
+C1108,4,1156950,3.5,99,0,Potensial (Mulai Pasif)
+C1109,6,318575,2.6666666666666665,96,0,Potensial (Mulai Pasif)
+C1110,3,374325,3.6666666666666665,195,0,Potensial (Mulai Pasif)
+C1111,6,614525,3.5,126,0,Potensial (Mulai Pasif)
+C1112,3,198350,2.3333333333333335,43,2,Berisiko Churn
+C1113,7,703700,2.2857142857142856,65,0,Potensial (Mulai Pasif)
+C1114,3,211800,2.3333333333333335,9,1,Loyal / Champions
+C1115,3,738650,3.3333333333333335,96,0,Potensial (Mulai Pasif)
+C1116,9,782075,2.7777777777777777,7,1,Loyal / Champions
+C1117,6,949550,3.3333333333333335,7,1,Loyal / Champions
+C1118,3,131200,2.6666666666666665,83,2,Berisiko Churn
+C1119,3,268975,3.3333333333333335,15,1,Loyal / Champions
+C1120,4,311100,2.25,7,1,Loyal / Champions
+C1121,4,1064150,2.5,212,0,Potensial (Mulai Pasif)
+C1122,2,185600,2.0,168,2,Berisiko Churn
+C1123,2,367450,5.0,52,2,Berisiko Churn
+C1124,8,596175,2.75,106,0,Potensial (Mulai Pasif)
+C1125,3,345850,4.0,19,1,Loyal / Champions
+C1126,2,196050,3.5,150,2,Berisiko Churn
+C1127,3,156375,2.6666666666666665,98,2,Berisiko Churn
+C1128,7,821775,3.0,24,1,Loyal / Champions
+C1129,3,324375,2.6666666666666665,130,0,Potensial (Mulai Pasif)
+C1130,5,773125,3.8,9,1,Loyal / Champions
+C1131,5,413775,2.8,26,1,Loyal / Champions
+C1132,7,727075,3.142857142857143,69,0,Potensial (Mulai Pasif)
+C1133,5,342200,2.4,38,0,Potensial (Mulai Pasif)
+C1134,7,825000,2.2857142857142856,21,1,Loyal / Champions
+C1135,6,905875,3.5,52,0,Potensial (Mulai Pasif)
+C1136,5,719725,3.2,52,0,Potensial (Mulai Pasif)
+C1137,4,428075,3.0,96,0,Potensial (Mulai Pasif)
+C1138,4,903150,3.25,89,0,Potensial (Mulai Pasif)
+C1139,3,145750,2.0,29,2,Berisiko Churn
+C1140,2,120175,3.0,48,2,Berisiko Churn
+C1141,2,160875,3.0,154,2,Berisiko Churn
+C1142,5,558350,2.6,29,1,Loyal / Champions
+C1143,1,303500,4.0,309,2,Berisiko Churn
+C1144,8,855050,2.875,21,1,Loyal / Champions
+C1145,3,483150,3.6666666666666665,155,0,Potensial (Mulai Pasif)
+C1146,3,417700,2.6666666666666665,6,1,Loyal / Champions
+C1147,3,198050,3.3333333333333335,33,2,Berisiko Churn
+C1148,7,764850,3.2857142857142856,9,1,Loyal / Champions
+C1149,3,213375,2.6666666666666665,127,2,Berisiko Churn
+C1150,5,616850,3.6,89,0,Potensial (Mulai Pasif)
+C1151,3,383325,3.3333333333333335,153,0,Potensial (Mulai Pasif)
+C1152,3,294525,4.0,59,0,Potensial (Mulai Pasif)
+C1153,4,403275,4.25,60,0,Potensial (Mulai Pasif)
+C1154,2,656850,4.0,123,0,Potensial (Mulai Pasif)
+C1155,3,376575,4.0,54,0,Potensial (Mulai Pasif)
+C1156,2,79550,2.5,167,2,Berisiko Churn
+C1157,3,192625,2.6666666666666665,50,2,Berisiko Churn
+C1158,3,146500,3.0,67,2,Berisiko Churn
+C1159,6,1078950,3.0,89,0,Potensial (Mulai Pasif)
+C1160,3,370650,2.0,79,0,Potensial (Mulai Pasif)
+C1161,3,229725,3.6666666666666665,10,1,Loyal / Champions
+C1162,1,102575,3.0,2,2,Berisiko Churn
+C1164,7,1195225,3.142857142857143,143,0,Potensial (Mulai Pasif)
+C1165,3,333100,3.3333333333333335,202,0,Potensial (Mulai Pasif)
+C1166,2,74350,2.5,59,2,Berisiko Churn
+C1167,6,625225,2.3333333333333335,14,1,Loyal / Champions
+C1168,1,41800,3.0,272,2,Berisiko Churn
+C1169,2,215000,3.5,188,2,Berisiko Churn
+C1170,5,992925,2.8,121,0,Potensial (Mulai Pasif)
+C1171,4,480375,3.25,10,1,Loyal / Champions
+C1172,3,674150,3.3333333333333335,160,0,Potensial (Mulai Pasif)
+C1173,5,388200,2.8,34,0,Potensial (Mulai Pasif)
+C1174,2,285500,3.5,42,2,Berisiko Churn
+C1175,4,442375,3.5,27,1,Loyal / Champions
+C1176,6,751175,3.0,54,0,Potensial (Mulai Pasif)
+C1177,5,502100,2.4,15,1,Loyal / Champions
+C1178,2,166500,3.0,160,2,Berisiko Churn
+C1180,3,157075,2.0,56,2,Berisiko Churn
+C1181,6,677850,2.8333333333333335,2,1,Loyal / Champions
+C1182,7,644875,2.5714285714285716,20,1,Loyal / Champions
+C1183,3,468775,2.6666666666666665,81,0,Potensial (Mulai Pasif)
+C1184,2,228475,4.0,76,2,Berisiko Churn
+C1185,7,729350,2.2857142857142856,19,1,Loyal / Champions
+C1186,3,293000,3.3333333333333335,126,0,Potensial (Mulai Pasif)
+C1187,3,188175,3.0,60,2,Berisiko Churn
+C1188,4,195200,2.0,77,0,Potensial (Mulai Pasif)
+C1189,3,705675,4.333333333333333,100,0,Potensial (Mulai Pasif)
+C1190,4,498125,2.75,115,0,Potensial (Mulai Pasif)
+C1191,7,1719300,3.142857142857143,1,1,Loyal / Champions
+C1192,1,121175,4.0,16,2,Berisiko Churn
+C1193,7,499875,3.2857142857142856,256,0,Potensial (Mulai Pasif)
+C1194,2,230900,3.0,278,2,Berisiko Churn
+C1195,6,978500,3.3333333333333335,44,0,Potensial (Mulai Pasif)
+C1196,5,907525,3.4,7,1,Loyal / Champions
+C1197,4,442650,3.0,166,0,Potensial (Mulai Pasif)
+C1198,4,554850,3.25,88,0,Potensial (Mulai Pasif)
+C1199,2,179275,3.5,71,2,Berisiko Churn
+C1200,4,399675,3.0,130,0,Potensial (Mulai Pasif)
+C1201,6,558775,3.1666666666666665,143,0,Potensial (Mulai Pasif)
+C1202,3,315925,3.0,190,0,Potensial (Mulai Pasif)
+C1203,5,864675,3.6,11,1,Loyal / Champions
+C1204,2,43050,2.0,1,2,Berisiko Churn
+C1205,1,109050,4.0,74,2,Berisiko Churn
+C1206,3,238125,2.3333333333333335,96,2,Berisiko Churn
+C1207,2,122000,3.5,51,2,Berisiko Churn
+C1208,5,1070750,3.4,13,1,Loyal / Champions
+C1209,4,476425,3.25,28,1,Loyal / Champions
+C1210,6,949825,2.8333333333333335,61,0,Potensial (Mulai Pasif)
+C1211,5,404350,3.4,33,0,Potensial (Mulai Pasif)
+C1212,3,128875,3.0,57,2,Berisiko Churn
+C1213,7,1156875,3.5714285714285716,18,1,Loyal / Champions
+C1214,6,782500,2.6666666666666665,10,1,Loyal / Champions
+C1215,7,1532025,4.142857142857143,12,1,Loyal / Champions
+C1216,5,242850,3.0,130,0,Potensial (Mulai Pasif)
+C1217,4,289575,3.0,64,0,Potensial (Mulai Pasif)
+C1218,6,366050,2.8333333333333335,13,1,Loyal / Champions
+C1219,6,518400,3.1666666666666665,12,1,Loyal / Champions
+C1220,4,415900,2.25,72,0,Potensial (Mulai Pasif)
+C1221,9,1458125,3.0,59,0,Potensial (Mulai Pasif)
+C1222,5,562000,2.6,103,0,Potensial (Mulai Pasif)
+C1223,4,461975,2.75,3,1,Loyal / Champions
+C1224,3,742150,3.6666666666666665,7,1,Loyal / Champions
+C1225,3,113375,2.6666666666666665,157,2,Berisiko Churn
+C1226,6,827825,3.3333333333333335,7,1,Loyal / Champions
+C1227,3,512425,2.6666666666666665,270,0,Potensial (Mulai Pasif)
+C1228,5,369500,2.4,10,1,Loyal / Champions
+C1229,5,396950,3.4,13,1,Loyal / Champions
+C1230,1,17450,2.0,89,2,Berisiko Churn
+C1231,6,742875,3.3333333333333335,106,0,Potensial (Mulai Pasif)
+C1232,6,292325,2.1666666666666665,75,0,Potensial (Mulai Pasif)
+C1233,4,224500,3.25,286,0,Potensial (Mulai Pasif)
+C1234,5,586675,3.8,107,0,Potensial (Mulai Pasif)
+C1235,3,772850,3.6666666666666665,13,1,Loyal / Champions
+C1236,3,669900,3.0,82,0,Potensial (Mulai Pasif)
+C1237,6,1019250,3.1666666666666665,83,0,Potensial (Mulai Pasif)
+C1238,3,525200,3.3333333333333335,109,0,Potensial (Mulai Pasif)
+C1239,8,1017500,2.875,20,1,Loyal / Champions
+C1240,4,532975,3.25,109,0,Potensial (Mulai Pasif)
+C1241,1,64850,2.0,212,2,Berisiko Churn
+C1242,4,475675,3.75,172,0,Potensial (Mulai Pasif)
+C1243,6,734575,3.0,2,1,Loyal / Champions
+C1244,3,468575,3.3333333333333335,55,0,Potensial (Mulai Pasif)
+C1245,8,921575,2.875,61,0,Potensial (Mulai Pasif)
+C1246,2,123250,2.0,125,2,Berisiko Churn
+C1247,2,264800,4.0,156,2,Berisiko Churn
+C1248,3,639125,3.0,38,0,Potensial (Mulai Pasif)
+C1249,4,401250,2.25,44,0,Potensial (Mulai Pasif)
+C1250,1,31500,2.0,149,2,Berisiko Churn
+C1251,3,267400,2.0,25,0,Potensial (Mulai Pasif)
+C1252,5,407575,3.0,45,0,Potensial (Mulai Pasif)
+C1253,3,535550,3.0,150,0,Potensial (Mulai Pasif)
+C1254,3,523150,3.0,132,0,Potensial (Mulai Pasif)
+C1255,3,401950,3.0,17,1,Loyal / Champions
+C1256,8,841500,3.0,136,0,Potensial (Mulai Pasif)
+C1257,5,556300,3.4,14,1,Loyal / Champions
+C1258,3,267000,3.0,34,0,Potensial (Mulai Pasif)
+C1259,12,1008350,2.75,12,1,Loyal / Champions
+C1260,5,500225,3.0,21,1,Loyal / Champions
+C1261,1,116700,3.0,111,2,Berisiko Churn
+C1262,2,70800,2.0,37,2,Berisiko Churn
+C1263,8,726500,3.0,7,1,Loyal / Champions
+C1264,2,225150,2.5,48,2,Berisiko Churn
+C1265,3,114575,2.0,165,2,Berisiko Churn
+C1266,5,1117975,4.2,9,1,Loyal / Champions
+C1267,9,1434650,3.6666666666666665,3,1,Loyal / Champions
+C1268,2,397150,3.5,13,1,Loyal / Champions
+C1269,3,331400,3.0,187,0,Potensial (Mulai Pasif)
+C1270,4,360925,3.75,29,1,Loyal / Champions
+C1271,4,410850,3.25,105,0,Potensial (Mulai Pasif)
+C1272,4,816500,3.75,1,1,Loyal / Champions
+C1273,1,64850,3.0,322,2,Berisiko Churn
+C1274,1,67000,2.0,124,2,Berisiko Churn
+C1275,3,252300,3.3333333333333335,120,2,Berisiko Churn
+C1276,4,618750,3.75,85,0,Potensial (Mulai Pasif)
+C1277,6,773350,3.8333333333333335,132,0,Potensial (Mulai Pasif)
+C1278,5,774175,2.8,80,0,Potensial (Mulai Pasif)
+C1279,4,615975,2.75,63,0,Potensial (Mulai Pasif)
+C1280,3,733875,3.6666666666666665,76,0,Potensial (Mulai Pasif)
+C1281,4,223800,1.75,18,1,Loyal / Champions
+C1282,9,1077525,2.3333333333333335,71,0,Potensial (Mulai Pasif)
+C1283,4,555500,3.75,35,0,Potensial (Mulai Pasif)
+C1284,5,375050,2.8,12,1,Loyal / Champions
+C1285,3,235300,2.6666666666666665,77,2,Berisiko Churn
+C1286,1,23800,1.0,251,2,Berisiko Churn
+C1287,5,926400,3.4,3,1,Loyal / Champions
+C1288,2,215025,2.5,81,2,Berisiko Churn
+C1289,4,863850,2.75,5,1,Loyal / Champions
+C1290,7,819450,3.4285714285714284,86,0,Potensial (Mulai Pasif)
+C1291,7,722250,2.5714285714285716,128,0,Potensial (Mulai Pasif)
+C1292,2,465900,3.5,185,0,Potensial (Mulai Pasif)
+C1293,3,85600,2.0,184,2,Berisiko Churn
+C1294,4,736475,2.75,54,0,Potensial (Mulai Pasif)
+C1295,4,616600,2.75,23,1,Loyal / Champions
+C1296,3,442450,2.6666666666666665,228,0,Potensial (Mulai Pasif)
+C1297,4,389575,3.0,8,1,Loyal / Champions
+C1298,3,431500,4.0,25,1,Loyal / Champions
+C1299,4,483000,2.25,181,0,Potensial (Mulai Pasif)
+C1300,7,990650,3.142857142857143,149,0,Potensial (Mulai Pasif)
+C1301,8,1581950,3.75,36,1,Loyal / Champions
+C1302,3,589700,3.3333333333333335,19,1,Loyal / Champions
+C1303,4,190925,2.0,203,0,Potensial (Mulai Pasif)
+C1304,12,1101625,3.1666666666666665,22,1,Loyal / Champions
+C1305,7,743000,3.0,4,1,Loyal / Champions
+C1306,5,615300,2.8,27,1,Loyal / Champions
+C1307,2,193875,3.0,75,2,Berisiko Churn
+C1308,2,193425,2.0,91,2,Berisiko Churn
+C1309,3,372200,2.6666666666666665,142,0,Potensial (Mulai Pasif)
+C1310,4,215400,2.75,49,0,Potensial (Mulai Pasif)
+C1311,5,1126425,3.0,16,1,Loyal / Champions
+C1312,3,310125,2.3333333333333335,36,0,Potensial (Mulai Pasif)
+C1313,2,176050,3.0,183,2,Berisiko Churn
+C1314,4,276325,2.75,139,0,Potensial (Mulai Pasif)
+C1315,3,303475,3.6666666666666665,17,1,Loyal / Champions
+C1316,5,410025,2.0,131,0,Potensial (Mulai Pasif)
+C1317,6,712975,3.8333333333333335,57,0,Potensial (Mulai Pasif)
+C1318,3,187400,3.0,70,2,Berisiko Churn
+C1319,1,60650,4.0,142,2,Berisiko Churn
+C1320,2,491000,4.0,148,0,Potensial (Mulai Pasif)
+C1321,4,615925,3.0,24,1,Loyal / Champions
+C1322,10,1105175,3.5,14,1,Loyal / Champions
+C1323,3,283850,2.6666666666666665,95,0,Potensial (Mulai Pasif)
+C1324,4,799125,4.0,93,0,Potensial (Mulai Pasif)
+C1325,5,571425,2.8,11,1,Loyal / Champions
+C1326,3,251850,2.3333333333333335,176,2,Berisiko Churn
+C1327,3,441775,4.0,113,0,Potensial (Mulai Pasif)
+C1328,6,519250,3.1666666666666665,28,1,Loyal / Champions
+C1329,3,339450,2.0,116,0,Potensial (Mulai Pasif)
+C1330,6,725575,3.3333333333333335,30,1,Loyal / Champions
+C1331,2,517400,4.0,215,0,Potensial (Mulai Pasif)
+C1332,6,477075,2.6666666666666665,22,1,Loyal / Champions
+C1333,2,89225,2.5,22,2,Berisiko Churn
+C1334,2,262975,4.0,136,2,Berisiko Churn
+C1335,6,966075,2.3333333333333335,51,0,Potensial (Mulai Pasif)
+C1336,5,421575,3.2,136,0,Potensial (Mulai Pasif)
+C1337,3,335350,3.6666666666666665,27,0,Potensial (Mulai Pasif)
+C1338,4,474725,3.5,6,1,Loyal / Champions
+C1339,4,243650,2.25,90,0,Potensial (Mulai Pasif)
+C1340,6,794550,3.0,73,0,Potensial (Mulai Pasif)
+C1341,2,37900,2.0,2,2,Berisiko Churn
+C1342,1,56950,3.0,85,2,Berisiko Churn
+C1343,4,653250,2.75,155,0,Potensial (Mulai Pasif)
+C1344,4,171200,3.0,40,0,Potensial (Mulai Pasif)
+C1345,3,201600,2.6666666666666665,69,2,Berisiko Churn
+C1346,7,1012500,3.142857142857143,179,0,Potensial (Mulai Pasif)
+C1347,1,99275,3.0,144,2,Berisiko Churn
+C1348,2,242325,5.0,194,2,Berisiko Churn
+C1349,6,736200,3.5,106,0,Potensial (Mulai Pasif)
+C1350,4,527700,3.75,50,0,Potensial (Mulai Pasif)
+C1351,6,578300,2.6666666666666665,55,0,Potensial (Mulai Pasif)
+C1352,1,45400,3.0,20,2,Berisiko Churn
+C1353,3,336800,3.3333333333333335,89,0,Potensial (Mulai Pasif)
+C1354,5,872850,3.6,1,1,Loyal / Champions
+C1355,3,328750,3.3333333333333335,107,0,Potensial (Mulai Pasif)
+C1356,3,757100,3.0,26,1,Loyal / Champions
+C1357,4,303350,2.75,80,0,Potensial (Mulai Pasif)
+C1358,2,228350,3.5,95,2,Berisiko Churn
+C1359,2,352600,4.0,24,2,Berisiko Churn
+C1360,5,276675,2.4,149,0,Potensial (Mulai Pasif)
+C1361,3,234150,3.0,21,1,Loyal / Champions
+C1362,1,50500,2.0,176,2,Berisiko Churn
+C1363,3,504425,4.0,6,1,Loyal / Champions
+C1364,3,329075,3.0,71,0,Potensial (Mulai Pasif)
+C1365,5,713100,4.2,63,0,Potensial (Mulai Pasif)
+C1366,3,226675,3.3333333333333335,44,2,Berisiko Churn
+C1367,3,317350,2.6666666666666665,77,0,Potensial (Mulai Pasif)
+C1368,5,579350,3.4,31,1,Loyal / Champions
+C1370,2,449975,4.5,250,2,Berisiko Churn
+C1371,3,198775,2.3333333333333335,151,2,Berisiko Churn
+C1372,9,673975,3.0,98,0,Potensial (Mulai Pasif)
+C1373,3,716675,4.0,100,0,Potensial (Mulai Pasif)
+C1374,7,468775,2.5714285714285716,21,1,Loyal / Champions
+C1375,7,1015300,2.5714285714285716,8,1,Loyal / Champions
+C1376,3,230575,3.0,31,2,Berisiko Churn
+C1377,4,567700,3.5,15,1,Loyal / Champions
+C1378,4,283850,3.25,23,1,Loyal / Champions
+C1379,6,310375,2.1666666666666665,21,1,Loyal / Champions
+C1380,3,217775,2.0,121,2,Berisiko Churn
+C1381,1,117225,4.0,306,2,Berisiko Churn
+C1382,4,488025,3.0,49,0,Potensial (Mulai Pasif)
+C1383,5,627250,3.2,20,1,Loyal / Champions
+C1384,2,104150,2.0,27,2,Berisiko Churn
+C1385,3,374350,4.666666666666667,6,1,Loyal / Champions
+C1386,4,426200,2.5,5,1,Loyal / Champions
+C1387,3,219050,2.3333333333333335,40,2,Berisiko Churn
+C1388,1,24850,2.0,240,2,Berisiko Churn
+C1389,5,322525,2.8,42,0,Potensial (Mulai Pasif)
+C1390,5,279950,3.2,5,1,Loyal / Champions
+C1391,6,499975,2.6666666666666665,43,0,Potensial (Mulai Pasif)
+C1392,5,560475,3.0,91,0,Potensial (Mulai Pasif)
+C1393,6,1099575,3.8333333333333335,53,0,Potensial (Mulai Pasif)
+C1394,7,765650,3.4285714285714284,29,1,Loyal / Champions
+C1395,2,210075,4.0,239,2,Berisiko Churn
+C1396,6,817025,3.6666666666666665,35,1,Loyal / Champions
+C1397,4,458075,2.5,83,0,Potensial (Mulai Pasif)
+C1398,4,342475,2.25,45,0,Potensial (Mulai Pasif)
+C1399,5,494875,3.2,42,0,Potensial (Mulai Pasif)
+C1400,4,335725,3.5,86,0,Potensial (Mulai Pasif)
+C1401,5,551350,4.0,40,0,Potensial (Mulai Pasif)
+C1402,4,347750,2.25,84,0,Potensial (Mulai Pasif)
+C1403,3,123675,3.3333333333333335,49,2,Berisiko Churn
+C1404,7,443825,3.2857142857142856,10,1,Loyal / Champions
+C1405,3,127650,1.6666666666666667,44,2,Berisiko Churn
+C1406,3,578900,4.0,126,0,Potensial (Mulai Pasif)
+C1407,3,208075,3.0,35,2,Berisiko Churn
+C1408,5,645125,3.2,13,1,Loyal / Champions
+C1409,4,201025,2.75,99,0,Potensial (Mulai Pasif)
+C1410,6,980850,2.8333333333333335,156,0,Potensial (Mulai Pasif)
+C1411,3,340650,3.0,43,0,Potensial (Mulai Pasif)
+C1412,5,401875,2.6,92,0,Potensial (Mulai Pasif)
+C1413,3,676650,3.3333333333333335,21,1,Loyal / Champions
+C1414,4,470275,2.25,143,0,Potensial (Mulai Pasif)
+C1415,3,426650,3.0,80,0,Potensial (Mulai Pasif)
+C1416,4,472150,4.0,208,0,Potensial (Mulai Pasif)
+C1417,3,201500,2.3333333333333335,125,2,Berisiko Churn
+C1418,3,218250,2.6666666666666665,150,2,Berisiko Churn
+C1419,2,212050,4.0,135,2,Berisiko Churn
+C1420,2,518000,3.5,238,0,Potensial (Mulai Pasif)
+C1421,12,1451050,2.75,15,1,Loyal / Champions
+C1422,5,167000,2.4,82,0,Potensial (Mulai Pasif)
+C1423,9,794675,2.5555555555555554,17,1,Loyal / Champions
+C1424,7,390100,3.142857142857143,25,1,Loyal / Champions
+C1425,2,796750,4.0,219,0,Potensial (Mulai Pasif)
+C1426,5,472725,2.2,48,0,Potensial (Mulai Pasif)
+C1427,6,825925,4.0,34,1,Loyal / Champions
+C1428,9,1307475,3.3333333333333335,5,1,Loyal / Champions
+C1429,2,285000,2.5,71,2,Berisiko Churn
+C1430,4,519225,3.25,110,0,Potensial (Mulai Pasif)
+C1431,2,102150,2.0,38,2,Berisiko Churn
+C1432,2,175125,3.0,79,2,Berisiko Churn
+C1433,4,539100,3.25,36,0,Potensial (Mulai Pasif)
+C1434,3,661025,2.0,24,1,Loyal / Champions
+C1435,3,442625,3.6666666666666665,9,1,Loyal / Champions
+C1436,4,717100,3.5,2,1,Loyal / Champions
+C1437,6,463550,3.0,79,0,Potensial (Mulai Pasif)
+C1438,4,259775,2.0,41,0,Potensial (Mulai Pasif)
+C1439,5,395100,2.8,65,0,Potensial (Mulai Pasif)
+C1440,2,408975,3.0,186,2,Berisiko Churn
+C1441,3,367225,3.6666666666666665,58,0,Potensial (Mulai Pasif)
+C1442,9,943650,2.888888888888889,6,1,Loyal / Champions
+C1443,5,681925,2.6,43,0,Potensial (Mulai Pasif)
+C1444,7,582700,2.142857142857143,93,0,Potensial (Mulai Pasif)
+C1445,1,61975,3.0,172,2,Berisiko Churn
+C1446,4,899950,3.0,108,0,Potensial (Mulai Pasif)
+C1447,2,85125,2.5,124,2,Berisiko Churn
+C1448,4,523275,3.75,46,0,Potensial (Mulai Pasif)
+C1449,2,168600,3.5,60,2,Berisiko Churn
+C1450,5,530925,3.6,40,0,Potensial (Mulai Pasif)
+C1451,3,238000,3.0,210,2,Berisiko Churn
+C1452,5,328825,2.8,165,0,Potensial (Mulai Pasif)
+C1453,2,199050,4.0,113,2,Berisiko Churn
+C1454,6,385875,3.0,1,1,Loyal / Champions
+C1455,4,667500,3.25,41,0,Potensial (Mulai Pasif)
+C1456,4,598725,3.0,156,0,Potensial (Mulai Pasif)
+C1457,6,919975,3.6666666666666665,153,0,Potensial (Mulai Pasif)
+C1458,6,648025,2.8333333333333335,18,1,Loyal / Champions
+C1459,4,479150,2.25,5,1,Loyal / Champions
+C1460,1,92125,2.0,150,2,Berisiko Churn
+C1462,3,359875,3.3333333333333335,97,0,Potensial (Mulai Pasif)
+C1463,3,480300,4.0,52,0,Potensial (Mulai Pasif)
+C1464,5,675125,2.2,55,0,Potensial (Mulai Pasif)
+C1465,6,1005975,3.1666666666666665,15,1,Loyal / Champions
+C1466,5,883775,3.0,10,1,Loyal / Champions
+C1467,5,323725,3.8,41,0,Potensial (Mulai Pasif)
+C1468,7,427875,3.4285714285714284,27,1,Loyal / Champions
+C1469,3,201925,3.3333333333333335,104,2,Berisiko Churn
+C1470,1,38400,3.0,219,2,Berisiko Churn
+C1471,3,492250,3.3333333333333335,281,0,Potensial (Mulai Pasif)
+C1472,6,836075,3.3333333333333335,17,1,Loyal / Champions
+C1473,1,151550,4.0,362,2,Berisiko Churn
+C1474,4,548575,2.75,168,0,Potensial (Mulai Pasif)
+C1475,2,53500,1.5,1,2,Berisiko Churn
+C1476,4,396000,3.75,2,1,Loyal / Champions
+C1477,3,622125,4.0,86,0,Potensial (Mulai Pasif)
+C1478,4,749425,3.75,10,1,Loyal / Champions
+C1479,5,563000,3.0,60,0,Potensial (Mulai Pasif)
+C1480,4,389425,2.75,37,0,Potensial (Mulai Pasif)
+C1481,6,339250,3.0,185,0,Potensial (Mulai Pasif)
+C1482,5,566100,3.4,21,1,Loyal / Champions
+C1483,8,1203925,2.375,39,1,Loyal / Champions
+C1484,3,183375,3.3333333333333335,9,1,Loyal / Champions
+C1485,2,253975,4.0,2,1,Loyal / Champions
+C1486,3,760500,4.0,10,1,Loyal / Champions
+C1487,4,433850,2.5,32,0,Potensial (Mulai Pasif)
+C1488,4,341200,3.5,321,0,Potensial (Mulai Pasif)
+C1489,4,1050750,3.0,64,0,Potensial (Mulai Pasif)
+C1490,2,190525,4.0,308,2,Berisiko Churn
+C1491,2,252450,3.0,4,1,Loyal / Champions
+C1492,3,495650,4.0,81,0,Potensial (Mulai Pasif)
+C1493,1,64100,2.0,245,2,Berisiko Churn
+C1494,7,931700,2.7142857142857144,6,1,Loyal / Champions
+C1495,4,575650,3.25,117,0,Potensial (Mulai Pasif)
+C1496,3,209775,3.0,48,2,Berisiko Churn
+C1497,5,591425,2.8,80,0,Potensial (Mulai Pasif)
+C1498,7,653175,3.7142857142857144,164,0,Potensial (Mulai Pasif)
+C1499,4,261450,2.25,46,0,Potensial (Mulai Pasif)
+C1500,6,570425,3.3333333333333335,73,0,Potensial (Mulai Pasif)

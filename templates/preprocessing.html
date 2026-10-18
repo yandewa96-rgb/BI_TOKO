@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% block title %}Preprocessing{% endblock %}
+{% block content %}
+{% set b = sm.before %}{% set af = sm.after %}
+<div class="page-h"><div><h1>Preprocessing &amp; Feature Engineering</h1>
+<p>Pembersihan data, alasan setiap keputusan, perbandingan sebelum–sesudah, dan penyiapan fitur untuk Apriori dan K-Means. Data mentah tidak ditimpa — seluruh perubahan dilakukan pada salinan kerja.</p></div>
+<div class="pill-row"><span class="tag">Tahap 2</span><span class="tag blue">Soal 3 &amp; 4</span></div></div>
+<div class="toc"><a href="#p-log">Log pembersihan</a><a href="#p-ba">Sebelum vs sesudah</a><a href="#p-doc">Dokumentasi perubahan</a><a href="#p-rfm">RFM</a><a href="#p-basket">basket_size &amp; Apriori</a><a href="#p-km">Fitur K-Means</a><a href="#p-big">Data besar</a><a href="#p-dl">Unduh</a></div>
+
+<div class="sec" id="p-log"><h2>3a–d · Penanganan masalah data &amp; alasannya</h2><div class="line"></div></div>
+<div class="card"><div class="tbl-wrap"><table class="t"><thead><tr><th>#</th><th>Masalah</th><th class="r">Jumlah</th><th>Penanganan</th><th>Metode</th><th>Alasan keputusan</th></tr></thead><tbody>
+{% for l in log %}<tr><td>{{ loop.index }}</td><td><b>{{ l.masalah }}</b><div><span class="tag gray">{{ l.tahap }}</span></div></td><td class="r"><span class="tag {{ 'red' if l.aksi.startswith('Dihapus') else ('green' if l.jumlah==0 else 'amber') }}">{{ l.jumlah|num }}</span></td><td>{{ l.aksi }}</td><td><code>{{ l.metode }}</code></td><td class="small">{{ l.alasan }}</td></tr>{% endfor %}
+</tbody></table></div></div>
+<div class="callout info mt"><div><b>Prinsip yang dipakai</b>Hapus hanya bila informasi tidak dapat dipulihkan (duplikat persis). Bila nilai benar dapat diturunkan secara deterministik dari kolom lain (katalog, nota yang sama, rumus Line_Total), nilai <u>diperbaiki</u> — bukan dibuang — agar omzet dan perilaku pelanggan tidak berkurang. Hasil perbaikan ditandai pada kolom <code>Is_Repaired</code>.</div></div>
+
+<div class="sec" id="p-ba"><h2>3e · Sebelum vs sesudah preprocessing</h2><div class="line"></div></div>
+<div class="grid g-21">
+<div class="card"><div class="tbl-wrap"><table class="t"><thead><tr><th>Indikator</th><th class="r">Sebelum (Data_Raw)</th><th class="r">Sesudah (Data_Clean)</th><th class="r">Perubahan</th></tr></thead><tbody>
+{% for k,v in b.items() %}{% set w = af[k] %}<tr><td>{{ k }}</td><td class="r">{{ v|num(3 if 'Rata' in k else 0) }}</td><td class="r"><b>{{ w|num(3 if 'Rata' in k else 0) }}</b></td><td class="r">{% set dlt = w - v %}<span class="{{ 'muted' if dlt==0 else '' }}">{{ ('+' if dlt>0 else '') ~ (dlt|num(3 if 'Rata' in k else 0)) }}</span></td></tr>{% endfor %}
+</tbody></table></div>
+<p class="muted small" style="margin:10px 0 0">Total nilai turun {{ (b['Total nilai Line_Total (Rp)'] - af['Total nilai Line_Total (Rp)'])|rp }} ({{ ((b['Total nilai Line_Total (Rp)'] - af['Total nilai Line_Total (Rp)'])/b['Total nilai Line_Total (Rp)'])|pct(2) }}) terutama karena duplikat dihapus. Jumlah transaksi, pelanggan, dan produk tetap — tidak ada entitas yang hilang. Quantity maksimum turun dari {{ b['Quantity maksimum'] }} menjadi {{ af['Quantity maksimum'] }}.</p></div>
+<div class="card"><h3>Baris mentah → bersih</h3><p class="sub">Nasib {{ sm.baris_awal|num }} baris data mentah</p><div class="chart sm"><canvas id="c-status"></canvas></div></div>
+</div>
+
+<div class="sec" id="p-doc"><h2>3 · Dokumentasi jumlah data</h2><span class="tag">Soal 4g</span><div class="line"></div></div>
+<div class="grid g4">
+  <div class="kpi mini" style="--kc:#64748b"><div class="l">Baris awal</div><div class="v">{{ sm.baris_awal|num }}</div></div>
+  <div class="kpi mini" style="--kc:#0f9d78"><div class="l">Dipertahankan tanpa perubahan</div><div class="v">{{ sm.baris_tidak_berubah|num }}</div><div class="d">{{ (sm.baris_tidak_berubah/sm.baris_awal)|pct }} dari baris awal</div></div>
+  <div class="kpi mini" style="--kc:#e8a317"><div class="l">Dipertahankan &amp; diperbaiki</div><div class="v">{{ sm.baris_diperbaiki|num }}</div><div class="d">qty / harga / total diperbaiki</div></div>
+  <div class="kpi mini" style="--kc:#d9453d"><div class="l">Dihapus</div><div class="v">{{ sm.baris_dihapus|num }}</div><div class="d">duplikat persis + penggabungan produk ganda</div></div>
+</div>
+<p class="muted small">Baris akhir = {{ sm.baris_akhir|num }}. Selain perbaikan nilai angka, sel kosong teks (Customer_ID, Region, Customer_Type, Product_ID, Payment_Method) dan penyeragaman teks juga diubah — rinciannya ada pada tabel log di atas.</p>
+
+<div class="sec" id="p-rfm"><h2>4a · Fitur RFM per pelanggan</h2><span class="tag">Soal 4a</span><div class="line"></div></div>
+<div class="grid g-21">
+<div class="card"><p class="sub" style="margin-bottom:8px">Satu baris = satu pelanggan ({{ S.rfm|length|num }} pelanggan bertransaksi dari 1.500 pada master). Contoh 8 baris pertama beserta hasil transformasi untuk K-Means.</p>
+<div class="tbl-wrap"><table class="t compact"><thead><tr><th>Customer_ID</th><th class="r">Recency</th><th class="r">Frequency</th><th class="r">Monetary</th><th class="r">log(1+M)</th><th class="r">R (z)</th><th class="r">F (z)</th><th class="r">M (z)</th></tr></thead><tbody>
+{% for r in cust_sample.itertuples() %}<tr><td><code>{{ r.Customer_ID }}</code></td><td class="r">{{ r.Recency }} hr</td><td class="r">{{ r.Frequency }}</td><td class="r">{{ r.Monetary|rp }}</td><td class="r">{{ r.Monetary_log }}</td><td class="r">{{ r.Recency_z }}</td><td class="r">{{ r.Frequency_z }}</td><td class="r">{{ r.Monetary_log_z }}</td></tr>{% endfor %}
+</tbody></table></div></div>
+<div class="card"><h3>Definisi &amp; tanggal acuan</h3>
+<ul class="clean"><li><b>Tanggal acuan</b>: <b>{{ fmt_date(S.ref_date) }}</b> = satu hari setelah transaksi terakhir ({{ fmt_date(S.date_max) }}), konsisten untuk semua pelanggan.</li>
+<li><b>Recency</b> = hari dari transaksi terakhir pelanggan hingga tanggal acuan (kecil = baru berbelanja).</li>
+<li><b>Frequency</b> = jumlah <i>Transaction_ID unik</i> (bukan jumlah baris).</li>
+<li><b>Monetary</b> = total <code>Line_Total</code> bersih setelah diskon.</li></ul>
+<p class="small muted" style="margin:8px 0 0">Rentang: Recency {{ S.rfm.Recency.min() }}–{{ S.rfm.Recency.max() }} hari · Frequency {{ S.rfm.Frequency.min() }}–{{ S.rfm.Frequency.max() }} · Monetary {{ S.rfm.Monetary.min()|rps }}–{{ S.rfm.Monetary.max()|rps }}</p></div>
+</div>
+
+<div class="sec" id="p-basket"><h2>4b–c · basket_size &amp; format data Apriori</h2><span class="tag">Soal 4b, 4c</span><div class="line"></div></div>
+<div class="grid g2">
+<div class="card"><h3>basket_size = jumlah produk berbeda per Transaction_ID</h3>
+<div class="tbl-wrap" style="margin-top:10px"><table class="t compact"><thead><tr><th>Transaction_ID</th><th>Tanggal</th><th>Customer_ID</th><th class="r">basket_size</th><th class="r">Item (qty)</th><th class="r">Omzet</th></tr></thead><tbody>
+{% for r in trans_sample.itertuples() %}<tr><td><code>{{ r.Transaction_ID }}</code></td><td>{{ r.Date.strftime('%Y-%m-%d') }}</td><td><code>{{ r.Customer_ID }}</code></td><td class="r"><b>{{ r.basket_size }}</b></td><td class="r">{{ r.items }}</td><td class="r">{{ r.revenue|rp }}</td></tr>{% endfor %}
+</tbody></table></div>
+<div class="chart sm mt"><canvas id="c-bs"></canvas></div>
+<p class="muted small" style="margin:8px 0 0">Rata-rata basket_size = <b>{{ S.trans.basket_size.mean()|num(2) }}</b>; maksimum {{ S.trans.basket_size.max() }}.</p></div>
+<div class="card"><h3>Matriks transaksi × produk (1 = dibeli)</h3><p class="sub">Dimensi penuh: {{ S.matrix.shape[0]|num }} transaksi × {{ S.matrix.shape[1] }} produk. Cuplikan 8×8:</p>
+<div class="tbl-wrap"><table class="t compact"><thead><tr><th>Transaction_ID</th>{% for c in mat_prev.columns %}<th class="c" style="writing-mode:vertical-rl;transform:rotate(180deg);height:92px">{{ c }}</th>{% endfor %}</tr></thead><tbody>
+{% for idx, row in mat_prev.iterrows() %}<tr><td><code>{{ idx }}</code></td>{% for v in row %}<td class="c" style="{{ 'background:#d6eef0;font-weight:700' if v else 'color:#b4bdcc' }}">{{ v }}</td>{% endfor %}</tr>{% endfor %}
+</tbody></table></div>
+<p class="muted small" style="margin:8px 0 0">Satu baris = satu nota (himpunan produk unik), bukan satu baris item. Kepadatan matriks: {{ (S.matrix.values.mean())|pct(1) }} sel bernilai 1.</p></div>
+</div>
+
+<div class="sec" id="p-km"><h2>4d–e · Matriks fitur K-Means &amp; normalisasi</h2><span class="tag">Soal 4d, 4e</span><div class="line"></div></div>
+<div class="grid g2">
+<div class="card"><h3>Fitur yang dipakai</h3><ul class="clean"><li><code>Recency</code> (hari), <code>Frequency</code> (jumlah nota), <code>log(1 + Monetary)</code>.</li><li>Customer_ID <b>tidak</b> dimasukkan sebagai fitur (hanya identitas).</li></ul>
+<h3 style="margin-top:14px">Rata-rata &amp; simpangan baku sebelum scaling</h3>
+<div class="tbl-wrap"><table class="t compact"><thead><tr><th>Fitur</th><th class="r">Rata-rata</th><th class="r">Std</th><th class="r">Skewness</th></tr></thead><tbody>
+{% for c in S.X.columns %}<tr><td><code>{{ c }}</code></td><td class="r">{{ S.X[c].mean()|num(2) }}</td><td class="r">{{ S.X[c].std()|num(2) }}</td><td class="r">{{ S.X[c].skew()|num(2) }}</td></tr>{% endfor %}
+<tr><td><code>Monetary</code> (mentah)</td><td class="r">{{ S.rfm.Monetary.mean()|num(0) }}</td><td class="r">{{ S.rfm.Monetary.std()|num(0) }}</td><td class="r">{{ S.rfm.Monetary.skew()|num(2) }}</td></tr>
+</tbody></table></div></div>
+<div class="card"><h3>Alasan memilih StandardScaler (z-score) &amp; log-transform</h3>
+<ol class="clean"><li><b>Skala berbeda jauh</b>: Monetary dalam ratusan ribu rupiah, Frequency 1–14. K-Means memakai jarak Euclidean, sehingga tanpa scaling Monetary akan mendominasi pembentukan klaster.</li>
+<li><b>Standardisasi</b> (rata-rata 0, std 1) menyamakan bobot ketiga fitur dan tidak memaksa rentang tetap seperti Min-Max, sehingga lebih tahan terhadap nilai ekstrem.</li>
+<li><b>Log pada Monetary</b>: distribusinya miring ke kanan (skewness {{ S.rfm.Monetary.skew()|num(2) }} → {{ S.X.Monetary_log.skew()|num(2) }}); log meredam pengaruh pelanggan bernilai sangat besar tanpa membuang mereka.</li></ol></div>
+</div>
+
+<div class="sec" id="p-big"><h2>4f · Strategi untuk dataset berukuran besar</h2><span class="tag">Soal 4f</span><div class="line"></div></div>
+<div class="grid g3">
+<div class="card"><h3>1 · Agregasi</h3><p class="sub" style="margin-bottom:0">Ubah {{ sm.baris_akhir|num }} baris item menjadi {{ S.trans|length|num }} baris nota dan {{ S.rfm|length|num }} baris pelanggan sebelum modeling. Aplikasi ini sudah melakukannya — K-Means berjalan pada tabel pelanggan, Apriori pada matriks nota.</p></div>
+<div class="card"><h3>2 · Chunking</h3><p class="sub" style="margin-bottom:0">Jika berkas jutaan baris, baca bertahap (<code>read_csv(chunksize=…)</code>), akumulasikan agregat per pelanggan/nota/produk per potongan, lalu gabungkan; memori tetap konstan.</p></div>
+<div class="card"><h3>3 · Sampling</h3><p class="sub" style="margin-bottom:0">Untuk eksplorasi: ambil sampel acak <i>per pelanggan</i> (bukan per baris) agar RFM tidak rusak, atau MiniBatchKMeans. Untuk Apriori naikkan min. support dan batasi panjang itemset.</p></div>
+</div>
+
+<div class="sec" id="p-dl"><h2>Berkas hasil preprocessing</h2><span class="tag">Luaran</span><div class="line"></div></div>
+<div class="grid g3 dl">{% for f, d in FILES.items() %}<a href="/download/{{ f }}">{{ d }}<span class="muted">{{ f }} ↓</span></a>{% endfor %}</div>
+{% endblock %}
+{% block scripts %}
+<script>
+doughnut('c-status', ['Tidak berubah', 'Diperbaiki', 'Dihapus'], [{{ status.tetap }}, {{ status.diperbaiki }}, {{ status.dihapus }}], { colors: ['#0f9d78', '#e8a317', '#d9453d'], legend: 'bottom' });
+barChart('c-bs', {{ bs_labels|tojson }}, {{ bs.values.tolist()|tojson }}, { color: '#8e5bd0' });
+</script>
+{% endblock %}

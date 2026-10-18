@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% block title %}Rekomendasi Keputusan{% endblock %}
+{% block content %}
+{% set P = r.seg %}
+<div class="page-h"><div><h1>Rekomendasi Keputusan Bisnis</h1>
+<p>Rekomendasi preskriptif untuk manajemen berdasarkan hasil Apriori dan K-Means. Setiap angka diberi label agar jelas mana yang fakta, mana asumsi, dan mana yang baru diketahui setelah implementasi.</p></div>
+<div class="pill-row"><span class="tag">Tahap 6</span><span class="tag blue">Soal 10</span></div></div>
+
+<div class="three">
+  <div class="f"><span class="badge-fact">Fakta dari data</span><p class="small" style="margin:8px 0 0">Dihitung langsung dari dataset 2025: support, confidence, lift, ukuran dan profil segmen, nilai rata-rata nota.</p></div>
+  <div class="e"><span class="badge-est">Estimasi berbasis asumsi</span><p class="small" style="margin:8px 0 0">Proyeksi dampak (Rp) dari tingkat keberhasilan <u>yang diasumsikan</u> (konservatif / moderat / optimistis). Bukan prediksi pasti.</p></div>
+  <div class="a"><span class="badge-act">Dampak aktual</span><p class="small" style="margin:8px 0 0"><b>Belum diketahui.</b> Baru dapat dipastikan setelah implementasi dan uji (kelompok kontrol). Aplikasi ini tidak menyatakan kenaikan penjualan sebagai fakta.</p></div>
+</div>
+
+<div class="sec"><h2>10a · Strategi penempatan produk &amp; bundling</h2><span class="badge-fact">Fakta</span><div class="line"></div></div>
+<div class="card"><div class="tbl-wrap"><table class="t"><thead><tr><th>Pasangan produk</th><th class="r">Nota bersama</th><th class="r">Support</th><th class="r">Confidence</th><th class="r">Lift</th><th>Tindakan</th></tr></thead><tbody>
+{% for c in r.cross %}<tr><td><b>{{ c.a }}</b> + <b>{{ c.b }}</b><div class="muted small">{{ c.cat_a }} · {{ c.cat_b }}</div></td><td class="r">{{ c.both }}</td><td class="r">{{ c.support|pct(2) }}</td><td class="r">{{ c.confidence|pct(1) }}{% if c.conf_rev %}<div class="muted small">sebaliknya {{ c.conf_rev|pct(1) }}</div>{% endif %}</td><td class="r"><b>{{ c.lift|num(2) }}</b></td>
+<td class="small">Letakkan berdekatan di rak; tawarkan paket; kasir menyarankan {{ c.b }} bila pelanggan membeli {{ c.a }}.</td></tr>{% endfor %}
+{% if r.triple_items %}<tr><td><b>{{ r.triple_items|join(' + ') }}</b><div class="muted small">paket 3 produk (support rendah)</div></td><td class="r">{{ r.triple_count }}</td><td class="r">{{ r.triple_support|pct(2) }}</td><td class="r">{{ r.triple[0].confidence|pct(1) }}</td><td class="r"><b>{{ r.triple[0].lift|num(2) }}</b></td><td class="small">Uji sebagai paket "sembako bulanan" — sampel kecil, perlakukan sebagai hipotesis.</td></tr>{% endif %}
+</tbody></table></div></div>
+
+<div class="sec"><h2>10b · Strategi retensi pelanggan</h2><span class="badge-fact">Fakta</span><div class="line"></div></div>
+<div class="grid g2">
+{% if P.get('Loyal Customers') %}{% set p = P['Loyal Customers'] %}<div class="card" style="border-top:4px solid {{ p.color }}"><h3>Mempertahankan pelanggan bernilai tinggi — Loyal Customers</h3>
+<p class="small muted" style="margin:2px 0 8px">{{ p.n|num }} pelanggan · {{ p.rev_share|pct(0) }} omzet · {{ p.F_mean|num(1) }} nota/tahun · {{ p.M_mean|rps }}/tahun</p>
+<ul class="clean small">{% for a in strategy(p.label).aksi %}<li>{{ a }}</li>{% endfor %}</ul></div>{% endif %}
+{% if P.get('Churn Risk') %}{% set p = P['Churn Risk'] %}<div class="card" style="border-top:4px solid {{ p.color }}"><h3>Menangani pelanggan berisiko churn — Churn Risk</h3>
+<p class="small muted" style="margin:2px 0 8px">{{ p.n|num }} pelanggan · rata-rata {{ p.R_mean|num }} hari tak berbelanja · {{ p.F_mean|num(1) }} nota/tahun · {{ p.M_mean|rps }}/tahun</p>
+<ul class="clean small">{% for a in strategy(p.label).aksi %}<li>{{ a }}</li>{% endfor %}</ul></div>{% endif %}
+</div>
+
+<div class="sec"><h2>10c · Prioritas tindakan</h2><span class="tag gray">Penilaian analis</span><div class="line"></div></div>
+<div class="card"><p class="sub">Skor = 30% urgensi + 35% potensi manfaat + 15% biaya (5 = termurah) + 20% kemudahan. Skala 1–5. <b>Potensi manfaat</b> diturunkan dari estimasi dampak bersih skenario moderat (dinormalkan); <b>urgensi, biaya, kemudahan</b> adalah penilaian analis dan dapat disesuaikan manajemen.</p>
+<div class="tbl-wrap"><table class="t"><thead><tr><th>Peringkat</th><th>Rekomendasi</th><th class="c">Urgensi</th><th class="c">Potensi manfaat</th><th class="c">Biaya (5=murah)</th><th class="c">Kemudahan</th><th class="r">Skor</th><th class="r">Estimasi bersih (moderat)</th></tr></thead><tbody>
+{% for i in r.prioritas %}<tr><td><span class="tag {{ 'green' if loop.first else 'gray' }}">#{{ i.rank }}</span></td><td><b>{{ i.id }}</b> · {{ i.nama }}</td>
+{% for v in [i.urgensi, i.manfaat, i.biaya, i.mudah] %}<td class="c"><span class="score">{% for n in range(1,6) %}<i class="{{ 'on' if n <= v }}"></i>{% endfor %}</span></td>{% endfor %}
+<td class="r"><b>{{ i.skor|num(2) }}</b></td><td class="r">{{ i.net|rps }} <span class="badge-est">estimasi</span></td></tr>{% endfor %}
+</tbody></table></div></div>
+
+<div class="sec"><h2>10d · Estimasi dampak bisnis</h2><span class="badge-est">Estimasi berbasis asumsi</span><div class="line"></div></div>
+<div class="callout warn"><div><b>Baca dengan hati-hati</b>Angka di bawah adalah proyeksi dari asumsi yang tertulis pada tiap tabel. Dampak sebenarnya dapat lebih kecil atau lebih besar dan harus diuji (lihat 10f). Basis perbandingan: omzet 2025 {{ r.base.revenue|rps }}.</div></div>
+
+<div class="card mt"><h3>R1 · Bundling &amp; penempatan berdekatan pasangan produk</h3>
+<p class="small muted" style="margin:2px 0 8px"><b>Asumsi:</b> persentase pembeli produk A <i>tanpa</i> B (fakta: kolom "peluang") yang akhirnya juga membeli B setelah penempatan/bundling; nilai tambahan = rata-rata nilai baris produk B (fakta historis); biaya = diskon bundling 5% atas nilai pasangan.</p>
+<div class="tbl-wrap"><table class="t compact"><thead><tr><th>Pasangan</th><th class="r">Peluang (nota A tanpa B)</th>{% for s in r.cross[0].scen %}<th class="r">{{ s.name }} ({{ (s.uplift*100)|int }}%)<br><span class="muted">dampak bersih / tahun</span></th>{% endfor %}</tr></thead><tbody>
+{% for c in r.cross %}<tr><td>{{ c.a }} → {{ c.b }}</td><td class="r">{{ c.a_wo_b }} <span class="badge-fact">fakta</span></td>{% for s in c.scen %}<td class="r" style="{{ 'color:#a02a24' if s.net < 0 }}">{{ s.net|rps }}<div class="muted small">+{{ s.inc_trx|num(0) }} nota</div></td>{% endfor %}</tr>{% endfor %}
+<tr style="font-weight:700;background:#f6f8fb"><td>Total R1</td><td></td>{% for k in range(3) %}<td class="r">{% set ns = namespace(t=0) %}{% for c in r.cross %}{% set ns.t = ns.t + c.scen[k].net %}{% endfor %}{{ ns.t|rps }}</td>{% endfor %}</tr>
+</tbody></table></div>
+<p class="muted small" style="margin:8px 0 0">Pasangan bernilai rendah (mis. ATK) bisa bernilai negatif pada skenario konservatif karena diskon bundling lebih besar dari tambahan penjualan — bundling ini lebih cocok sebagai pemicu kunjungan, bukan sumber laba.</p></div>
+
+<div class="grid g2 mt">
+{% if r.churn_scen %}<div class="card"><h3>R2 · Win-back pelanggan Churn Risk</h3>
+<p class="small muted" style="margin:2px 0 8px"><b>Asumsi:</b> sebagian pelanggan kembali dan berbelanja sebesar rata-rata tahunan segmennya ({{ P['Churn Risk'].M_mean|rps }}, fakta); biaya voucher {{ r.voucher|rp }} per pelanggan yang kembali + pesan Rp 500 ke seluruh {{ P['Churn Risk'].n }} pelanggan.</p>
+<div class="tbl-wrap"><table class="t compact"><thead><tr><th>Skenario</th><th class="r">Tingkat kembali</th><th class="r">Pelanggan kembali</th><th class="r">Tambahan omzet</th><th class="r">Biaya</th><th class="r">Bersih</th></tr></thead><tbody>
+{% for s in r.churn_scen %}<tr><td>{{ s.name }}</td><td class="r">{{ (s.rate*100)|int }}%</td><td class="r">{{ s.react|num(0) }}</td><td class="r">{{ s.rev|rps }}</td><td class="r">{{ s.cost|rps }}</td><td class="r"><b>{{ s.net|rps }}</b></td></tr>{% endfor %}</tbody></table></div></div>{% endif %}
+{% if r.loyal_scen %}<div class="card"><h3>R3 · Program loyalitas untuk Loyal Customers</h3>
+<p class="small muted" style="margin:2px 0 8px"><b>Asumsi:</b> belanja segmen naik dari basis {{ P['Loyal Customers'].rev|rps }} (fakta); biaya program poin ±5% dari tambahan omzet.</p>
+<div class="tbl-wrap"><table class="t compact"><thead><tr><th>Skenario</th><th class="r">Kenaikan belanja</th><th class="r">Tambahan omzet</th><th class="r">Biaya</th><th class="r">Bersih</th></tr></thead><tbody>
+{% for s in r.loyal_scen %}<tr><td>{{ s.name }}</td><td class="r">{{ (s.growth*100)|int }}%</td><td class="r">{{ s.rev|rps }}</td><td class="r">{{ s.cost|rps }}</td><td class="r"><b>{{ s.net|rps }}</b></td></tr>{% endfor %}</tbody></table></div></div>{% endif %}
+{% if r.pot_scen %}<div class="card"><h3>R4 · Naikkan Potential Customers menjadi loyal</h3>
+<p class="small muted" style="margin:2px 0 8px"><b>Asumsi:</b> sebagian pelanggan tambah 1 transaksi per tahun senilai rata-rata nota segmen ({{ P['Potential Customers'].aov|rps }}, fakta); biaya program ±8% dari tambahan omzet.</p>
+<div class="tbl-wrap"><table class="t compact"><thead><tr><th>Skenario</th><th class="r">Pelanggan berhasil</th><th class="r">Tambahan omzet</th><th class="r">Bersih</th></tr></thead><tbody>
+{% for s in r.pot_scen %}<tr><td>{{ s.name }}</td><td class="r">{{ (s.takeup*100)|int }}% ({{ s.up|num(0) }})</td><td class="r">{{ s.rev|rps }}</td><td class="r"><b>{{ s.net|rps }}</b></td></tr>{% endfor %}</tbody></table></div></div>{% endif %}
+</div>
+
+<div class="sec"><h2>10e · Rencana implementasi</h2><div class="line"></div></div>
+<div class="grid g3">
+<div class="card" style="border-top:4px solid #0f9d78"><span class="tag green">Jangka pendek · 0–30 hari</span><ol class="clean small"><li>Atur ulang rak: dekatkan pasangan produk berlift tinggi (R1).</li><li>Kirim kampanye win-back WhatsApp/SMS ke {{ P['Churn Risk'].n|num }} pelanggan Churn Risk dengan voucher 7 hari (R2).</li><li>Sisihkan 20% pelanggan Churn Risk sebagai <b>kelompok kontrol</b> yang tidak dikirimi voucher.</li><li>Pasang skrip rekomendasi pelengkap di kasir.</li></ol></div>
+<div class="card" style="border-top:4px solid #3b6fd4"><span class="tag blue">Jangka menengah · 1–3 bulan</span><ol class="clean small"><li>Luncurkan paket bundling (uji pada sebagian toko/wilayah) (R1).</li><li>Mulai program poin untuk Loyal Customers (R3).</li><li>Kupon "belanja ke-5" untuk Potential Customers (R4).</li><li>Bangun dashboard ini sebagai laporan bulanan, perbarui RFM &amp; klaster tiap bulan.</li></ol></div>
+<div class="card" style="border-top:4px solid #8e5bd0"><span class="tag purple">Evaluasi · 3–6 bulan</span><ol class="clean small"><li>Bandingkan kelompok uji vs kontrol; hitung signifikansi (uji dua proporsi).</li><li>Hentikan bundling yang tidak menaikkan margin.</li><li>Jalankan ulang Apriori &amp; K-Means dengan data setelah intervensi.</li><li>Putuskan perluasan ke seluruh toko berdasarkan hasil.</li></ol></div>
+</div>
+
+<div class="sec"><h2>10f · KPI evaluasi</h2><div class="line"></div></div>
+<div class="card"><div class="tbl-wrap"><table class="t"><thead><tr><th>KPI</th><th>Rekomendasi</th><th class="r">Baseline (fakta 2025)</th><th>Target (asumsi — disesuaikan manajemen)</th><th>Cara mengukur</th></tr></thead><tbody>
+<tr><td><b>Attach rate pasangan</b> (mis. {{ r.cross[0].b }} | {{ r.cross[0].a }})</td><td>R1</td><td class="r">{{ r.cross[0].confidence|pct(1) }}</td><td>+{{ ((r.cross[0].confidence*0.1)*100)|num(1) }} poin (relatif +10%)</td><td>Nota yang memuat A dan B ÷ nota memuat A, toko uji vs kontrol</td></tr>
+<tr><td><b>Rata-rata basket size</b></td><td>R1, R4</td><td class="r">{{ r.base.avg_basket|num(2) }}</td><td>+0,10 produk/nota</td><td>Rata-rata produk unik per Transaction_ID per bulan</td></tr>
+<tr><td><b>Nilai rata-rata nota (AOV)</b></td><td>R1, R4</td><td class="r">{{ r.base.aov|rp }}</td><td>+3–5%</td><td>Total omzet ÷ jumlah nota</td></tr>
+<tr><td><b>Reactivation rate</b></td><td>R2</td><td class="r">belum diukur (0 intervensi)</td><td>≥ 10% pelanggan Churn Risk kembali dalam 30 hari</td><td>Pelanggan target yang bertransaksi ulang vs kelompok kontrol</td></tr>
+<tr><td><b>Frekuensi belanja per pelanggan</b></td><td>R3, R4</td><td class="r">{{ r.base.freq|num(2) }} nota/tahun</td><td>+0,5 nota/tahun pada segmen sasaran</td><td>Jumlah Transaction_ID unik per pelanggan</td></tr>
+<tr><td><b>Porsi omzet Loyal Customers</b></td><td>R3</td><td class="r">{{ P['Loyal Customers'].rev_share|pct(1) }}</td><td>Dipertahankan ≥ baseline; Recency rata-rata ≤ {{ P['Loyal Customers'].R_mean|num(0) }} hari</td><td>Segmentasi ulang bulanan</td></tr>
+<tr><td><b>ROI kampanye</b></td><td>R1–R4</td><td class="r">–</td><td>≥ 3× biaya</td><td>(Tambahan omzet kelompok uji − biaya) ÷ biaya</td></tr>
+</tbody></table></div></div>
+
+<div class="card mt"><h3>Cara membuktikan dampak aktual</h3>
+<ol class="clean small"><li><b>Uji A/B</b>: bagi toko/pelanggan menjadi kelompok uji dan kontrol (acak) sebelum intervensi.</li><li>Ukur KPI pada periode yang sama minimal 4–8 minggu (menghindari efek musiman; omzet puncak jatuh pada bulan Oktober).</li><li>Bandingkan selisih kelompok uji − kontrol, hitung signifikansi statistik, baru nyatakan hasil sebagai <b>dampak aktual</b>.</li><li>Pisahkan: <span class="badge-fact">fakta</span> dari data 2025, <span class="badge-est">estimasi</span> pada halaman ini, dan <span class="badge-act">aktual</span> yang diisi setelah uji berakhir.</li></ol></div>
+{% endblock %}

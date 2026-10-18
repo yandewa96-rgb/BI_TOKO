@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% block title %}K-Means{% endblock %}
+{% block content %}
+{% set e = ev[k] %}{% set e3 = ev[3] %}
+<div class="page-h"><div><h1>Segmentasi Pelanggan — K-Means</h1>
+<p>Mengelompokkan {{ S.rfm|length|num }} pelanggan berdasarkan perilaku belanja (RFM), menentukan jumlah klaster secara terukur, lalu memberi label dan strategi untuk tiap segmen.</p></div>
+<div class="pill-row"><span class="tag">Tahap 4</span><span class="tag blue">Soal 7 &amp; 8</span></div></div>
+<div class="toc"><a href="#k-fitur">Fitur</a><a href="#k-k">Pemilihan k</a><a href="#k-hasil">Hasil klaster</a><a href="#k-profil">Profil &amp; label</a><a href="#k-strategi">Strategi</a><a href="#k-prio">Prioritas</a></div>
+
+<div class="sec" id="k-fitur"><h2>7a · Fitur segmentasi</h2><div class="line"></div></div>
+<div class="grid g3">
+  <div class="card" style="border-top:4px solid #3b6fd4"><h3>Recency</h3><p class="small" style="margin:0">Hari sejak transaksi terakhir (tanggal acuan {{ fmt_date(S.ref_date) }}). Pengukur kedekatan hubungan &amp; risiko churn. Rata-rata {{ ov.Recency.mean|num(0) }} hari.</p></div>
+  <div class="card" style="border-top:4px solid #0f9d78"><h3>Frequency</h3><p class="small" style="margin:0">Jumlah nota unik pelanggan sepanjang 2025. Pengukur loyalitas. Rata-rata {{ ov.Frequency.mean|num(1) }} nota.</p></div>
+  <div class="card" style="border-top:4px solid #e8a317"><h3>Monetary (log)</h3><p class="small" style="margin:0">Total belanja bersih; dilog-transform untuk meredam kemiringan. Rata-rata {{ ov.Monetary.mean|rps }} per pelanggan.</p></div>
+</div>
+<p class="muted small">Satu baris = satu pelanggan. Ketiga fitur distandarisasi (z-score) sebelum K-Means; Customer_ID tidak dipakai sebagai fitur. Korelasi: F–M = {{ S.rfm.Frequency.corr(S.rfm.Monetary)|num(2) }}, R–F = {{ S.rfm.Recency.corr(S.rfm.Frequency)|num(2) }}, sehingga tiap fitur tetap membawa informasi berbeda.</p>
+
+<div class="sec" id="k-k"><h2>7b–d · Menentukan jumlah klaster optimal</h2><div class="line"></div></div>
+<div class="grid g2">
+  <div class="card"><h3>Elbow Method (inertia / WCSS)</h3><p class="sub">Titik tempat penurunan mulai melandai.</p><div class="chart"><canvas id="c-elbow"></canvas></div></div>
+  <div class="card"><h3>Silhouette Score</h3><p class="sub">Semakin tinggi semakin jelas pemisahan klaster (maks 1).</p><div class="chart"><canvas id="c-sil"></canvas></div></div>
+</div>
+<div class="grid g-21 mt">
+<div class="card"><h3>Evaluasi kandidat k = 2–8</h3>
+<div class="tbl-wrap"><table class="t compact"><thead><tr><th class="r">k</th><th class="r">Inertia</th><th class="r">Penurunan inertia vs k−1</th><th class="r">Silhouette</th><th></th></tr></thead><tbody>
+{% for x in evals %}<tr {% if x.k == k %}style="background:#eef6f7;font-weight:600"{% endif %}><td class="r">{{ x.k }}</td><td class="r">{{ x.inertia|num(1) }}</td><td class="r">{% if not loop.first %}{{ (1 - x.inertia/evals[loop.index0-1].inertia)|pct(1) }}{% else %}–{% endif %}</td><td class="r">{{ x.silhouette|num(3) }}</td><td>{% if x.k == best.k %}<span class="tag gray">silhouette tertinggi</span>{% endif %}{% if x.k == k %} <span class="tag green">dipilih</span>{% endif %}</td></tr>{% endfor %}
+</tbody></table></div></div>
+<div class="card"><h3>Mengapa k = {{ k }}?</h3>
+<ol class="clean small">
+<li><b>Elbow</b>: penurunan inertia melandai — {{ (1 - ev[3].inertia/ev[2].inertia)|pct(0) }} (2→3), {{ (1 - ev[4].inertia/ev[3].inertia)|pct(0) }} (3→4), {{ (1 - ev[5].inertia/ev[4].inertia)|pct(0) }} (4→5), {{ (1 - ev[6].inertia/ev[5].inertia)|pct(0) }} (5→6). Siku tidak tajam, tetapi ruang perbaikan terbesar ada sampai k = 4.</li>
+<li><b>Silhouette</b>: tertinggi pada k = {{ best.k }} ({{ best.silhouette|num(3) }}), namun k = 2 hanya memisahkan pelanggan "aktif" dan "tidak aktif" — terlalu kasar untuk strategi berbeda. Pada k = {{ k }} silhouette {{ e.silhouette|num(3) }} (selisih {{ (e3.silhouette - e.silhouette)|num(3) }} dari k = 3 dan hampir sama dengan k = 5 dan 6), masih menunjukkan struktur yang wajar (&gt; 0,25).</li>
+<li><b>Interpretasi bisnis</b>: k = {{ k }} menghasilkan empat profil yang punya tindakan berbeda (loyal, potensial, kasual, berisiko churn). k = 3 menggabungkan pelanggan kasual ke dalam kelompok lain; k ≥ 5 memecah kelompok dengan strategi yang sama.</li></ol>
+<p class="muted small" style="margin:8px 0 0">Anda dapat mencoba nilai k lain di bagian berikut; label dan strategi menyesuaikan otomatis.</p></div>
+</div>
+
+<div class="sec" id="k-hasil"><h2>7e–f · Hasil pengelompokan &amp; visualisasi</h2><div class="line"></div></div>
+<div class="card"><div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap;justify-content:space-between">
+  <div class="f"><label>Jumlah klaster (k)</label><div class="seg-toggle" id="k-sel">{% for x in evals %}<button data-k="{{ x.k }}" class="{{ 'on' if x.k==k }}">{{ x.k }}</button>{% endfor %}</div></div>
+  <div class="muted small" id="k-meta"></div>
+  <div class="seg-toggle" id="k-ax"><button data-a="pca" class="on">PCA (2D)</button><button data-a="fm">Frequency × Monetary</button><button data-a="rm">Recency × Monetary</button></div></div>
+</div>
+<div class="grid g-21 mt">
+  <div class="card"><div class="chart xl"><canvas id="k-scatter"></canvas></div><p class="muted small" id="k-pcanote" style="margin:8px 0 0"></p></div>
+  <div class="card"><h3>Jumlah pelanggan per klaster</h3><div class="chart"><canvas id="k-pie"></canvas></div><div class="chart sm mt"><canvas id="k-rev"></canvas></div></div>
+</div>
+
+<div class="sec" id="k-profil"><h2>8a–c · Profil klaster &amp; label berbasis data</h2><div class="line"></div></div>
+<div class="grid g4" id="k-cards"></div>
+<div class="card mt"><h3>Profil RFM &amp; bukti pemberian label</h3>
+<p class="sub">Z-score = jarak rata-rata klaster dari rata-rata seluruh pelanggan (dalam simpangan baku). Label ditentukan oleh aturan: Recency z &gt; 1,5 → <i>Churn Risk</i>; z antara 0,7–1,5 → <i>At Risk</i>; selain itu nilai belanja (zF + zM) &gt; 0,6 → <i>Loyal</i>, &lt; −0,5 → <i>Occasional</i>, sisanya <i>Potential</i>.</p>
+<div id="k-table"></div></div>
+
+<div class="sec" id="k-strategi"><h2>8d · Strategi pemasaran per segmen</h2><div class="line"></div></div>
+<div class="grid g2" id="k-strat"></div>
+
+<div class="sec" id="k-prio"><h2>8e · Segmen prioritas perusahaan</h2><div class="line"></div></div>
+{% set P = {} %}{% for p in km.profile %}{% set _ = P.update({p.label: p}) %}{% endfor %}
+<div class="card">
+<div class="grid g2">
+{% if P.get('Loyal Customers') %}<div class="callout good"><div><b>Prioritas 1 — Loyal Customers (pertahankan)</b>{{ P['Loyal Customers'].share|pct(0) }} pelanggan menyumbang {{ P['Loyal Customers'].rev_share|pct(0) }} omzet. Kehilangan satu pelanggan loyal setara kehilangan {{ (P['Loyal Customers'].M_mean/P['Potential Customers'].M_mean)|num(1) }}× nilai pelanggan potensial rata-rata. Risiko terbesar bagi omzet adalah mereka berpindah toko.</div></div>{% endif %}
+{% if P.get('Churn Risk') %}<div class="callout bad"><div><b>Prioritas 2 — Churn Risk (urgensi waktu)</b>{{ P['Churn Risk'].n|num }} pelanggan rata-rata {{ P['Churn Risk'].R_mean|num }} hari tak berbelanja. Biaya win-back kecil dan semakin lama dibiarkan semakin sulit kembali, sehingga ini tindakan paling mendesak walau kontribusi omzetnya baru {{ P['Churn Risk'].rev_share|pct(0) }}.</div></div>{% endif %}
+{% if P.get('Potential Customers') %}<div class="callout info"><div><b>Prioritas 3 — Potential Customers (kembangkan)</b>Segmen terbesar ({{ P['Potential Customers'].n|num }} pelanggan, {{ P['Potential Customers'].rev_share|pct(0) }} omzet) dengan frekuensi {{ P['Potential Customers'].F_mean|num(1) }} nota/tahun. Menaikkan frekuensi sebagian kecil saja berdampak besar karena basisnya luas.</div></div>{% endif %}
+{% if P.get('Occasional Customers') %}<div class="callout warn"><div><b>Prioritas 4 — Occasional Customers (pantau)</b>Nilai belanja rendah ({{ P['Occasional Customers'].M_mean|rps }}/tahun). Gunakan tindakan berbiaya rendah; jangan memberi diskon besar.</div></div>{% endif %}
+</div></div>
+{% endblock %}
+{% block scripts %}
+<script>
+const EV = {{ evals|tojson }}, OV = {{ ov|tojson }}, K0 = {{ k }};
+mk('c-elbow', { type: 'line', data: { labels: EV.map(e => 'k=' + e.k), datasets: [{ label: 'Inertia', data: EV.map(e => e.inertia), borderColor: '#0e7c86', backgroundColor: '#0e7c86', tension: .25, borderWidth: 2.5, pointRadius: EV.map(e => e.k === K0 ? 8 : 4), pointBackgroundColor: EV.map(e => e.k === K0 ? '#e8a317' : '#0e7c86') }] }, options: { plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => ' Inertia: ' + fmt.num(c.parsed.y, 1) } } }, scales: { y: { title: { display: true, text: 'Inertia (WCSS)' }, beginAtZero: false } } } });
+mk('c-sil', { type: 'bar', data: { labels: EV.map(e => 'k=' + e.k), datasets: [{ data: EV.map(e => e.silhouette), backgroundColor: EV.map(e => e.k === K0 ? '#e8a317' : '#3b6fd4'), borderRadius: 5, maxBarThickness: 40 }] }, options: { plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => ' Silhouette: ' + c.parsed.y.toFixed(3) } } }, scales: { y: { title: { display: true, text: 'Silhouette Score' }, beginAtZero: true, max: 0.5 } } } });
+
+let KD = null, ax = 'pca';
+function load(k) {
+  fetch('/api/kmeans?k=' + k).then(r => r.json()).then(d => { KD = d; render(); });
+}
+function render() {
+  const d = KD, P = d.profile, tot = P.reduce((a, p) => a + p.n, 0);
+  $('#k-meta').innerHTML = `k = <b>${d.k}</b> · Silhouette <b>${d.silhouette.toFixed(3)}</b> · ${fmt.num(tot)} pelanggan`;
+  $('#k-pcanote').textContent = `Sumbu PCA merangkum ${fmt.pct(d.var[0] + d.var[1], 0)} variasi (PC1 ${fmt.pct(d.var[0], 0)}, PC2 ${fmt.pct(d.var[1], 0)}). Klik tombol di atas untuk melihat sumbu asli RFM.`;
+  scatter();
+  doughnut('k-pie', P.map(p => p.label), P.map(p => p.n), { colors: P.map(p => p.color), legend: 'bottom' });
+  barChart('k-rev', P.map(p => p.label), P.map(p => p.rev_share * 100), { colors: P.map(p => p.color), fmt: v => v.toFixed(0) + '% omzet', axfmt: v => v + '%', thick: 40 });
+  $('#k-cards').innerHTML = P.map(p => `<div class="seg-card" style="--sc:${p.color}"><div class="nm">${esc(p.label)}</div><div class="n">${fmt.num(p.n)} <span class="muted small" style="font-weight:500">${fmt.pct(p.share, 0)}</span></div><div class="small muted">${esc(p.strat.ciri)}</div>
+    <dl><dt>Recency</dt><dd>${fmt.num(p.R_mean, 0)} hari</dd><dt>Frequency</dt><dd>${fmt.num(p.F_mean, 1)} nota</dd><dt>Monetary</dt><dd>${fmt.rps(p.M_mean)}</dd><dt>Omzet tahunan</dt><dd>${fmt.rps(p.rev)} (${fmt.pct(p.rev_share, 0)})</dd></dl></div>`).join('');
+  const z = (v, c) => ((v - OV[c].mean) / OV[c].std);
+  const zf = v => `<span style="color:${Math.abs(v) < .3 ? '#657089' : v > 0 ? '#0a7156' : '#a02a24'};font-weight:600">${v > 0 ? '+' : ''}${v.toFixed(2).replace('.', ',')}</span>`;
+  $('#k-table').innerHTML = `<div class="tbl-wrap"><table class="t"><thead><tr><th>Segmen (label)</th><th class="r">Pelanggan</th><th class="r">Recency rata² (median)</th><th class="r">Frequency rata² (median)</th><th class="r">Monetary rata² (median)</th><th class="r">Nilai nota rata²</th><th class="r">z-Recency</th><th class="r">z-Frequency</th><th class="r">z-Monetary</th></tr></thead><tbody>` +
+    P.map(p => `<tr><td><span class="tag" style="background:${p.color}22;color:${p.color}">${esc(p.label)}</span></td><td class="r">${fmt.num(p.n)}</td><td class="r">${fmt.num(p.R_mean, 0)} (${fmt.num(p.R_med, 0)}) hr</td><td class="r">${fmt.num(p.F_mean, 1)} (${fmt.num(p.F_med, 0)})</td><td class="r">${fmt.rps(p.M_mean)} (${fmt.rps(p.M_med)})</td><td class="r">${fmt.rps(p.aov)}</td><td class="r">${zf(z(p.R_mean, 'Recency'))}</td><td class="r">${zf(z(p.F_mean, 'Frequency'))}</td><td class="r">${zf(z(p.M_mean, 'Monetary'))}</td></tr>`).join('') + '</tbody></table></div>';
+  $('#k-strat').innerHTML = P.map(p => `<div class="card" style="border-top:4px solid ${p.color}"><div style="display:flex;justify-content:space-between;gap:8px;align-items:center"><h3>${esc(p.label)}</h3><span class="tag gray">${esc(p.strat.prioritas)}</span></div>
+    <p class="small muted" style="margin:2px 0 6px">${fmt.num(p.n)} pelanggan · ${fmt.pct(p.rev_share, 0)} omzet</p><ul class="clean small">${p.strat.aksi.map(a => `<li>${esc(a)}</li>`).join('')}</ul><p class="small" style="margin:8px 0 0"><b>KPI:</b> ${esc(p.strat.kpi)}</p></div>`).join('');
+}
+function scatter() {
+  const d = KD, pts = d.points, labs = d.profile.map(p => p.label), col = d.colors;
+  const get = { pca: p => ({ x: p.x, y: p.y }), fm: p => ({ x: p.F + (Math.random() - .5) * .5, y: p.M }), rm: p => ({ x: p.R, y: p.M }) }[ax];
+  const t = { pca: ['Komponen utama 1', 'Komponen utama 2'], fm: ['Frequency (jumlah transaksi)', 'Monetary (Rp)'], rm: ['Recency (hari)', 'Monetary (Rp)'] }[ax];
+  mk('k-scatter', { type: 'scatter', data: { datasets: labs.map(l => ({ label: l, data: pts.filter(p => p.s === l).map(p => ({ ...get(p), id: p.id, R: p.R, F: p.F, M: p.M })), backgroundColor: col[l] + '99', pointRadius: 3.8, pointHoverRadius: 6 })) },
+    options: { plugins: { legend: { position: 'top', align: 'end' }, tooltip: { callbacks: { label: c => { const r = c.raw; return ` ${r.id}: R=${r.R} hari, F=${r.F}, M=${fmt.rps(r.M)}`; } } } }, scales: { x: { title: { display: true, text: t[0] } }, y: { title: { display: true, text: t[1] }, ticks: { callback: v => ax === 'pca' ? v : fmt.rps(v) } } } } });
+}
+$$('#k-sel button').forEach(b => b.addEventListener('click', () => { $$('#k-sel button').forEach(x => x.classList.remove('on')); b.classList.add('on'); load(b.dataset.k); }));
+$$('#k-ax button').forEach(b => b.addEventListener('click', () => { $$('#k-ax button').forEach(x => x.classList.remove('on')); b.classList.add('on'); ax = b.dataset.a; scatter(); }));
+load(K0);
+</script>
+{% endblock %}
